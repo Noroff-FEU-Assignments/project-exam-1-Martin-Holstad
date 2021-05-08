@@ -1,6 +1,10 @@
-body {
+main {
   display: grid;
   justify-content: center;
+}
+
+.hide {
+  display: none;
 }
 
 .posts-main-image-container {
@@ -16,8 +20,11 @@ body {
 .posts-date,
 .posts-author {
   font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
   color: black;
   font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 3px;
 }
 
 .posts-h2 {
@@ -41,11 +48,17 @@ p {
   color: #4b4b4b;
 }
 
+.button-and-social-media-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
 .posts-read-more-button {
   width: 180px;
   height: 35px;
   margin-top: 30px;
-  margin-bottom: 200px;
+  margin-bottom: 150px;
   border-radius: 20px;
   border-style: none;
   cursor: pointer;
