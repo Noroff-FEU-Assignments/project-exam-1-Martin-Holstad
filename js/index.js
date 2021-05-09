@@ -7,13 +7,25 @@ async function homePageFetch() {
 
         const results = await response.json();
 
+        carousel()
+
         results.forEach(function (result) {
             homePageApiContainer.innerHTML += `<div>
                                                <h2 class="home-page-h2">${result.title.rendered}</h2>
+                                               <a href="about.html">
                                                <img class="home-page-image" src="${result._embedded['wp:featuredmedia'][0].source_url}" alt="${result.title.rendered}">
+                                               </a>
                                                <p>${result.content.rendered}</p>
+                                               </div>
+                                               <div class="lastest-post-social-media">
+                                               <a href="https://www.messenger.com/"><i class="fab fa-facebook-messenger"></i></a>
+                                               <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                               <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                                               <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                                                </div>`
         });
+
+
 
         homePage(results)
 
@@ -32,6 +44,7 @@ homePageFetch()
 
 
 const carouselApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts"
+const carouselSection = document.querySelector(".carousel-section")
 const carouselApiContainer = document.querySelector(".carousel-container")
 const nextImage = document.querySelector(".fa-chevron-right")
 const previousImage = document.querySelector(".fa-chevron-left")
@@ -44,17 +57,17 @@ async function carousel() {
 
         const results = await response.json();
 
+
         results.forEach(function (results) {
             carouselApiContainer.innerHTML += `
                                                <div class="carousel-image-container">
-                                               <a href="recipe-details.html?id=${results.id}?name=${results.title.rendered}?author=${results._embedded.author[0].name}?date=${results.date}">
+                                               <a class="carousel-anchor" href="recipe-details.html?id=${results.id}?name=${results.title.rendered}?author=${results._embedded.author[0].name}?date=${results.date}">
                                                <img class="carousel-image" src="${results._embedded['wp:featuredmedia'][0].source_url}">
-                                               </a>
                                                <h4>${results.title.rendered}</h4>
                                                <p>${results.excerpt.rendered}</p>
+                                               </a>
                                                </div>                                
                                                `
-
         });
 
     }
@@ -64,7 +77,6 @@ async function carousel() {
     }
 }
 
-carousel()
 
 
 let scrollOffset = 0
