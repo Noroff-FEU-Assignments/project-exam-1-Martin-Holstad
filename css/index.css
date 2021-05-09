@@ -1,0 +1,62 @@
+main {
+  display: grid;
+  justify-content: center;
+}
+
+.home-page-container {
+  width: 700px;
+}
+
+.home-page-image {
+  width: 700px;
+}
+
+.home-page-h2 {
+  font-weight: normal;
+}
+
+p {
+  color: #4b4b4b;
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  gap: 10px;
+  width: 700px;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.carousel-image-container {
+}
+
+.carousel-image {
+  width: 230px;
+  height: 160px;
+}
+
+.fa-chevron-left {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  color: #fff;
+  font-size: 50px;
+  cursor: pointer;
+  background-color: black;
+  width: 40px;
+  height: 50px;
+}
+
+.fa-chevron-right {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  color: #fff;
+  font-size: 50px;
+  cursor: pointer;
+  background-color: black;
+  width: 40px;
+  height: 50px;
+}

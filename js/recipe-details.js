@@ -15,7 +15,6 @@ async function recipeDetails() {
         const postDetails = await response.json()
 
 
-
         function newHtml(postDetails) {
             postSection.innerHTML += `<section class ="post-container">
                                       <img class="image-module" src="${postDetails._embedded['wp:featuredmedia'][0].source_url}" alt ="${postDetails.title.rendered}">
