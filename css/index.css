@@ -19,14 +19,27 @@ p {
   color: #4b4b4b;
 }
 
+h3 {
+  font-size: 30px;
+  margin: 0px;
+  background-color: #f29f05;
+  color: #fff;
+  font-weight: normal;
+  padding: 5px;
+  width: fit-content;
+}
+
+.carousel-section {
+  position: relative;
+}
+
 .carousel-container {
   display: flex;
   justify-content: space-between;
-  position: relative;
   gap: 10px;
   width: 700px;
-  overflow-x: scroll;
-  overflow: hidden;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .carousel-image {
@@ -36,24 +49,19 @@ p {
 
 .fa-chevron-left {
   position: absolute;
-  left: 10px;
+  left: -70px;
   top: 50%;
-  color: #fff;
-  font-size: 50px;
+  color: #4b4b4b;
+  font-size: 30px;
   cursor: pointer;
-  background-color: black;
-  width: 40px;
-  height: 50px;
 }
 
 .fa-chevron-right {
   position: absolute;
-  right: 10px;
+  right: -60px;
   top: 50%;
   color: #fff;
-  font-size: 50px;
+  font-size: 30px;
   cursor: pointer;
-  background-color: black;
-  width: 40px;
-  height: 50px;
+  color: #4b4b4b;
 }

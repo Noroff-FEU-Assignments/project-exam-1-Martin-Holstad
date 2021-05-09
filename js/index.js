@@ -41,7 +41,9 @@ async function carousel() {
         results.forEach(function (results) {
             carouselApiContainer.innerHTML += `
                                                <div class="carousel-image-container">
+                                               <a href="recipe-details.html?id=${results.id}?name=${results.title.rendered}?author=${results._embedded.author[0].name}?date=${results.date}">
                                                <img class="carousel-image" src="${results._embedded['wp:featuredmedia'][0].source_url}">
+                                               </a>
                                                </div>
                                                `
 
@@ -56,34 +58,26 @@ async function carousel() {
 
 carousel()
 
+
 let scrollOffset = 0
 
-
-
 nextImage.onclick = function () {
+    scrollOffset = 0
     scrollOffset += 740
 
-    if (scrollOffset > 1480) {
-        scrollOffset = 0
-    }
+    carouselApiContainer.scrollBy(scrollOffset, 0);
 
-    carouselApiContainer.scroll({
-        left: scrollOffset,
-        behavior: 'smooth'
-    });
+    console.log(scrollOffset)
 }
 
 previousImage.onclick = function () {
+    scrollOffset = 0
     scrollOffset -= 740
+    carouselApiContainer.scrollBy(scrollOffset, 0);
 
-    if (scrollOffset < 0) {
-        scrollOffset = 1480
-    }
-
-    carouselApiContainer.scroll({
-        left: scrollOffset,
-        behavior: 'smooth'
-    });
+    console.log(scrollOffset)
 }
+
+
 
 
