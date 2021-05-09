@@ -31,6 +31,7 @@ const nextImage = document.querySelector(".fa-chevron-right")
 const previousImage = document.querySelector(".fa-chevron-left")
 
 
+
 async function carousel() {
     try {
         const response = await fetch(carouselApi + "?per_page=9&_embed");
@@ -43,6 +44,7 @@ async function carousel() {
                                                <img class="carousel-image" src="${results._embedded['wp:featuredmedia'][0].source_url}">
                                                </div>
                                                `
+
         });
 
     }
@@ -54,6 +56,34 @@ async function carousel() {
 
 carousel()
 
+let scrollOffset = 0
 
+
+
+nextImage.onclick = function () {
+    scrollOffset += 740
+
+    if (scrollOffset > 1480) {
+        scrollOffset = 0
+    }
+
+    carouselApiContainer.scroll({
+        left: scrollOffset,
+        behavior: 'smooth'
+    });
+}
+
+previousImage.onclick = function () {
+    scrollOffset -= 740
+
+    if (scrollOffset < 0) {
+        scrollOffset = 1480
+    }
+
+    carouselApiContainer.scroll({
+        left: scrollOffset,
+        behavior: 'smooth'
+    });
+}
 
 

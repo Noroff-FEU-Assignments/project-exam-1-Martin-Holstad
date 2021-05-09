@@ -26,10 +26,6 @@ p {
   gap: 10px;
   width: 700px;
   overflow: hidden;
-  overflow-x: scroll;
-}
-
-.carousel-image-container {
 }
 
 .carousel-image {
