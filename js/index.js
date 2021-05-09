@@ -17,6 +17,7 @@ async function homePageFetch() {
 
         homePage(results)
 
+
     }
 
     catch (error) {
@@ -24,6 +25,11 @@ async function homePageFetch() {
 }
 
 homePageFetch()
+
+
+
+
+
 
 const carouselApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts"
 const carouselApiContainer = document.querySelector(".carousel-container")
@@ -44,7 +50,9 @@ async function carousel() {
                                                <a href="recipe-details.html?id=${results.id}?name=${results.title.rendered}?author=${results._embedded.author[0].name}?date=${results.date}">
                                                <img class="carousel-image" src="${results._embedded['wp:featuredmedia'][0].source_url}">
                                                </a>
-                                               </div>
+                                               <h4>${results.title.rendered}</h4>
+                                               <p>${results.excerpt.rendered}</p>
+                                               </div>                                
                                                `
 
         });
@@ -63,7 +71,7 @@ let scrollOffset = 0
 
 nextImage.onclick = function () {
     scrollOffset = 0
-    scrollOffset += 740
+    scrollOffset += 706
 
     carouselApiContainer.scrollBy(scrollOffset, 0);
 
@@ -72,12 +80,8 @@ nextImage.onclick = function () {
 
 previousImage.onclick = function () {
     scrollOffset = 0
-    scrollOffset -= 740
+    scrollOffset -= 706
     carouselApiContainer.scrollBy(scrollOffset, 0);
 
     console.log(scrollOffset)
 }
-
-
-
-

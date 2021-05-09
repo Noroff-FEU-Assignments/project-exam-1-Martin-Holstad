@@ -3,8 +3,14 @@ main {
   justify-content: center;
 }
 
+.home-nav-link {
+  text-decoration: underline;
+}
+
 .home-page-container {
   width: 700px;
+  position: relative;
+  margin-top: 0px;
 }
 
 .home-page-image {
@@ -19,9 +25,14 @@ p {
   color: #4b4b4b;
 }
 
+h2 {
+  color: #4b4b4b;
+}
+
 h3 {
-  font-size: 30px;
-  margin: 0px;
+  font-size: 25px;
+  margin-top: 100px;
+  margin-bottom: 0px;
   background-color: #f29f05;
   color: #fff;
   font-weight: normal;
@@ -29,17 +40,34 @@ h3 {
   width: fit-content;
 }
 
+.lastest-post-social-media {
+  position: absolute;
+  bottom: 30px;
+  right: 0px;
+}
+
+h4 {
+  margin-bottom: 0px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
 .carousel-section {
   position: relative;
+  width: fit-content;
 }
 
 .carousel-container {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 5px;
   width: 700px;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  border-top-style: solid;
+  border-width: 2px;
+  padding-top: 10px;
+  margin-top: -10px;
 }
 
 .carousel-image {
@@ -50,7 +78,7 @@ h3 {
 .fa-chevron-left {
   position: absolute;
   left: -70px;
-  top: 50%;
+  top: 45%;
   color: #4b4b4b;
   font-size: 30px;
   cursor: pointer;
@@ -59,7 +87,7 @@ h3 {
 .fa-chevron-right {
   position: absolute;
   right: -60px;
-  top: 50%;
+  top: 45%;
   color: #fff;
   font-size: 30px;
   cursor: pointer;
