@@ -14,9 +14,6 @@ async function fetchPosts() {
 
         result.forEach(function (posts) {
 
-            console.log(posts)
-
-
             postsContainer.innerHTML += `<section>
                                          <div>
                                          <a href="recipe-details.html?id=${posts.id}?name=${posts.title.rendered}?author=${posts._embedded.author[0].name}?date=${posts.date}">

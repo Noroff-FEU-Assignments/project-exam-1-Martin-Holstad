@@ -1,6 +1,7 @@
 main {
   display: grid;
   justify-content: center;
+  margin: 10px;
 }
 
 .blog-nav-link {
@@ -12,11 +13,12 @@ main {
 }
 
 .posts-main-image-container {
-  width: 700px;
+  max-width: 700px;
 }
 
 .posts-main-image {
-  width: 700px;
+  max-width: 700px;
+  width: 100%;
   cursor: pointer;
   margin-bottom: 0px;
 }

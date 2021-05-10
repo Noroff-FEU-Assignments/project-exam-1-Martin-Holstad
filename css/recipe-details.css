@@ -1,17 +1,20 @@
 main {
   display: grid;
   justify-content: center;
+  margin: 10px;
 }
 
 .post-container {
-  width: 700px;
+  max-width: 700px;
+  width: 100%;
 }
 
 figure,
 img {
-  width: 700px;
+  max-width: 700px;
+  width: 100%;
   margin-left: 0px;
-  height: 500px;
+  max-height: 500px;
 }
 
 figure {
@@ -58,7 +61,7 @@ p {
 }
 
 .add-a-comment-form {
-  width: 700px;
+  max-width: 700px;
 }
 
 .comment-header-container {

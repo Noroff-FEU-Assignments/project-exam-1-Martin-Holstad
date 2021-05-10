@@ -29,7 +29,6 @@ async function homePageFetch() {
 
         homePage(results)
 
-
     }
 
     catch (error) {
@@ -85,15 +84,17 @@ nextImage.onclick = function () {
     scrollOffset = 0
     scrollOffset += 706
 
-    carouselApiContainer.scrollBy(scrollOffset, 0);
+    if (window.innerWidth < 900) {
+        scrollOffset = 0
+        scrollOffset += 469
+    }
 
-    console.log(scrollOffset)
+
+    carouselApiContainer.scrollBy(scrollOffset, 0);
 }
 
 previousImage.onclick = function () {
     scrollOffset = 0
     scrollOffset -= 706
     carouselApiContainer.scrollBy(scrollOffset, 0);
-
-    console.log(scrollOffset)
 }
