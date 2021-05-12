@@ -3,13 +3,13 @@ const homePageApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/pages"
 
 async function homePageFetch() {
     try {
-        const response = await fetch(homePageApi + "?page_id=102&_embed");
+        const response = await fetch(homePageApi + "/102?_embed");
 
         const results = await response.json();
 
         carousel()
 
-        results.forEach(function (result) {
+        function homeHtml(result) {
             homePageApiContainer.innerHTML += `<div>
                                                <h2 class="home-page-h2">${result.title.rendered}</h2>
                                                <a href="about.html">
@@ -23,12 +23,9 @@ async function homePageFetch() {
                                                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                                                <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                                                </div>`
-        });
+        }
 
-
-
-        homePage(results)
-
+        homeHtml(results)
     }
 
     catch (error) {

@@ -16,12 +16,17 @@ async function recipeDetails() {
 
 
         function newHtml(postDetails) {
-            postSection.innerHTML += `<section class ="post-container">
-                                      <img class="image-module" src="${postDetails._embedded['wp:featuredmedia'][0].source_url}" alt ="${postDetails.title.rendered}">
+            postSection.innerHTML += `
+                                      <section class ="post-container">
+                                      <div class="image-module">
+                                      <img src="${postDetails._embedded['wp:featuredmedia'][0].source_url}" alt ="${postDetails.title.rendered}">
+                                      </div>
                                       <h2>${postDetails.title.rendered}</h2>
                                       <p class="post-date">Date: ${postDetails.date}</p>
                                       <p class="post-author">Author: ${postDetails._embedded.author[0].name}</p>
+                                      <div>
                                       ${postDetails.content.rendered}
+                                      </div>
                                       </section>
                                       <form class="add-a-comment-form">
                                       <div class="social-media-container">
@@ -50,6 +55,7 @@ async function recipeDetails() {
                                       </div>
                                       </form>                                     
                                       `
+
         }
 
         newHtml(postDetails)
@@ -61,5 +67,6 @@ async function recipeDetails() {
     catch { }
 }
 recipeDetails()
+
 
 
