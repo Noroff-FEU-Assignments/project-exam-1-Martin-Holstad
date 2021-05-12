@@ -5,7 +5,7 @@ async function aboutFetch() {
     try {
         const response = await fetch(aboutApi)
         const aboutResult = await response.json();
-        console.log(aboutResult)
+
 
         function aboutHtml(aboutResult) {
             aboutMainSection.innerHTML += `<div>

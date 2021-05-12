@@ -1,5 +1,6 @@
 const homePageApiContainer = document.querySelector(".home-page-container")
 const homePageApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/pages"
+const homePageLoaderContainer = document.querySelector(".home-page-content-loader-container")
 
 async function homePageFetch() {
     try {
@@ -7,7 +8,7 @@ async function homePageFetch() {
 
         const results = await response.json();
 
-        carousel()
+        homePageLoaderContainer.style.display = "none"
 
         function homeHtml(result) {
             homePageApiContainer.innerHTML += `<div>
@@ -54,6 +55,7 @@ async function carousel() {
 
         nextImageContainer.style.display = "block"
         previousImageContainer.style.display = "block"
+        carouselSection.style.display = "block"
 
 
         results.forEach(function (results) {
@@ -64,7 +66,8 @@ async function carousel() {
                                                <h4>${results.title.rendered}</h4>
                                                <p>${results.excerpt.rendered}</p>
                                                </a>
-                                               </div>                              
+                                               </div>
+                                                                            
                                                `
         });
 
@@ -75,6 +78,8 @@ async function carousel() {
     }
 }
 
+carousel()
+
 const nextImage = document.querySelector(".fa-chevron-right")
 const previousImage = document.querySelector(".fa-chevron-left")
 const dotOne = document.querySelector(".dot-one")
@@ -82,25 +87,49 @@ const dotTwo = document.querySelector(".dot-two")
 const dotThree = document.querySelector(".dot-three")
 
 let scrollOffset = 0
-const color = "black"
 
 
 nextImage.onclick = function () {
-    scrollOffset = 0
+
     scrollOffset += 706
 
+    carouselApiContainer.scroll({
+        left: scrollOffset,
+        behavior: 'smooth'
+    });
 
-    carouselApiContainer.scrollBy(scrollOffset, 0);
+
+    if (scrollOffset === 706) {
+        dotOne.style.color = "#4b4b4b"
+        dotTwo.style.color = "#f29f05"
+    }
+
+    if (scrollOffset >= 1412) {
+        scrollOffset = 1412
+        dotTwo.style.color = "#4b4b4b"
+        dotThree.style.color = "#f29f05"
+    }
 
 }
 
 
-
-
 previousImage.onclick = function () {
-    scrollOffset = 0
     scrollOffset -= 706
 
-    carouselApiContainer.scrollBy(scrollOffset, 0);
+    carouselApiContainer.scroll({
+        left: scrollOffset,
+        behavior: 'smooth'
+    });
+
+    if (scrollOffset === 706) {
+        dotThree.style.color = "#4b4b4b"
+        dotTwo.style.color = "#f29f05"
+    }
+
+    if (scrollOffset <= 0) {
+        scrollOffset = 0
+        dotTwo.style.color = "#4b4b4b"
+        dotOne.style.color = "#f29f05"
+    }
 }
 

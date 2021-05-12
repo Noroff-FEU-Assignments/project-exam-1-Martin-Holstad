@@ -8,6 +8,10 @@ main {
   text-decoration: underline;
 }
 
+.homePageLoaderContainer {
+  text-align: center;
+}
+
 .home-page-container {
   max-width: 700px;
   width: 100%;
@@ -58,7 +62,12 @@ h4 {
   font-weight: normal;
 }
 
+.carouselLoaderContainer {
+  text-align: center;
+}
+
 .carousel-section {
+  display: none;
   position: relative;
   width: 100%;
 }
@@ -109,5 +118,19 @@ h4 {
   color: #fff;
   font-size: 30px;
   cursor: pointer;
+  color: #4b4b4b;
+}
+
+.carousel-dots-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.dot-one {
+  color: #f29f05;
+}
+
+.dot-two,
+.dot-three {
   color: #4b4b4b;
 }

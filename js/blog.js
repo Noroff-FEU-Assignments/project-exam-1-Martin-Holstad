@@ -20,7 +20,7 @@ async function fetchPosts() {
                                          <img class="posts-main-image" src="${posts._embedded['wp:featuredmedia'][0].source_url}" alt="${posts.title.rendered}">
                                          <h2 class="posts-h2">${posts.title.rendered}</h2>
                                          </a>
-                                         <p class="posts-date">Date: ${posts.date}</p>
+                                         <p class="posts-date">Date: ${posts.date.slice(0, 10)}</p>
                                          <p class="posts-author">Author: ${posts._embedded.author[0].name}</p>
                                          </div >
                                          <div>

@@ -5,7 +5,6 @@ async function contactFetch() {
     try {
         const response = await fetch(contactApi)
         const contactResult = await response.json();
-        console.log(contactResult)
 
         function contactHtml(contactResult) {
             contactMainSection.innerHTML += `<div>
@@ -14,7 +13,7 @@ async function contactFetch() {
                                              <div>
                                              ${contactResult.content.rendered}
                                              </div>
-                                             <form>
+                                             <form class="contact-form">
                                              <div class="name-container">
                                              <label for="name-input" class="name-label">Name*</label>
                                              <input type="text" id="name-input" value="Name">
@@ -30,6 +29,9 @@ async function contactFetch() {
                                              <div class="message-container">
                                              <label for="message-input" class="message-label">Message*</label>
                                              <textarea name="message-input" id="message-input">Message*</textarea>
+                                             </div>
+                                             <div class="contact-submit-button-container">
+                                             <button class="contact-submit-button">Add comment</button>
                                              </div>
                                              </form>
                                              `

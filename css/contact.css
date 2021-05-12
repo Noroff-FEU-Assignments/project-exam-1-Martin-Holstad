@@ -46,7 +46,6 @@ label {
 .message-label {
   margin-bottom: 10px;
   font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 #message-input {
@@ -58,8 +57,16 @@ label {
 
 .name-container,
 .email-container,
+.subject-container,
+#message-input,
+.message-label {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.name-container,
+.email-container,
 .subject-container {
-  width: 300px;
+  max-width: 300px;
   margin-bottom: 10px;
 }
 
@@ -70,4 +77,19 @@ label {
   height: 25px;
   color: grey;
   outline: none;
+}
+
+.contact-submit-button-container {
+  margin-top: 30px;
+}
+
+.contact-submit-button {
+  width: 130px;
+  height: 30px;
+  border-radius: 20px;
+  border-style: none;
+  cursor: pointer;
+  background-color: #f29f05;
+  color: #fff;
+  font-weight: bold;
 }
