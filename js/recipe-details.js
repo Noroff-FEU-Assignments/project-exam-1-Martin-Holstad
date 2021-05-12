@@ -23,7 +23,7 @@ async function recipeDetails() {
                                       </div>
                                       <h2>${postDetails.title.rendered}</h2>
                                       <p class="post-date">Date: ${postDetails.date.slice(0, 10)}</p>
-                                      <p class="post-author">Author: ${postDetails._embedded.author[0].name}</p>
+                                      <p class="post-author">Recipe from: ${postDetails._embedded.author[0].name}</p>
                                       <div>
                                       ${postDetails.content.rendered}
                                       </div>
