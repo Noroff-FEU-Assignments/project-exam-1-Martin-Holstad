@@ -57,5 +57,16 @@ viewMoreButton.onclick = function () {
     fetchPosts()
 }
 
+const backToTopButton = document.querySelector(".back-to-top-button")
+
+backToTopButton.onclick = function () {
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+
+}
+
 
 

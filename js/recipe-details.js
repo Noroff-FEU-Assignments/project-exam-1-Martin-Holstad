@@ -15,7 +15,9 @@ async function recipeDetails() {
         const postDetails = await response.json()
 
 
+
         function newHtml(postDetails) {
+
             postSection.innerHTML += `
                                       <section class ="post-container">
                                       <div class="image-module">
@@ -53,9 +55,8 @@ async function recipeDetails() {
                                       <div class="add-a-comment-button-container">
                                       <button class="add-a-comment-button">Add comment</button>
                                       </div>
-                                      </form>                                     
+                                      </form>                                   
                                       `
-
         }
 
         newHtml(postDetails)
@@ -67,6 +68,3 @@ async function recipeDetails() {
     catch { }
 }
 recipeDetails()
-
-
-
