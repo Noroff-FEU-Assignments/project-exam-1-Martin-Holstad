@@ -31,7 +31,7 @@ p {
 h2 {
   color: #4b4b4b;
   text-align: center;
-  margin-top: 150px;
+  margin-top: 100px;
   margin-bottom: 60px;
 }
 
@@ -71,7 +71,7 @@ h4 {
   overflow: hidden;
   scroll-behavior: smooth;
   border-top-style: solid;
-  border-width: 2px;
+  border-width: 1px;
   padding-top: 10px;
   margin-top: -10px;
 }
@@ -85,6 +85,10 @@ h4 {
   color: black;
 }
 
+.fa-chevron-left-container {
+  display: none;
+}
+
 .fa-chevron-left {
   position: absolute;
   left: -70px;
@@ -92,6 +96,10 @@ h4 {
   color: #4b4b4b;
   font-size: 30px;
   cursor: pointer;
+}
+
+.fa-chevron-right-container {
+  display: none;
 }
 
 .fa-chevron-right {

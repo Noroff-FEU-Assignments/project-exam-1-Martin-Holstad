@@ -5,6 +5,7 @@ main {
 }
 
 .post-container {
+  margin-top: 100px;
   max-width: 700px;
   width: 100%;
 }
@@ -15,6 +16,7 @@ img {
   width: 100%;
   margin-left: 0px;
   max-height: 500px;
+  height: 100%;
 }
 
 figure {

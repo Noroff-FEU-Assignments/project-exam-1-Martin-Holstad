@@ -45,9 +45,8 @@ homePageFetch()
 const carouselApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts"
 const carouselSection = document.querySelector(".carousel-section")
 const carouselApiContainer = document.querySelector(".carousel-container")
-const nextImage = document.querySelector(".fa-chevron-right")
-const previousImage = document.querySelector(".fa-chevron-left")
-
+const nextImageContainer = document.querySelector(".fa-chevron-right-container")
+const previousImageContainer = document.querySelector(".fa-chevron-left-container")
 
 
 async function carousel() {
@@ -55,6 +54,9 @@ async function carousel() {
         const response = await fetch(carouselApi + "?per_page=9&_embed");
 
         const results = await response.json();
+
+        nextImageContainer.style.display = "block"
+        previousImageContainer.style.display = "block"
 
 
         results.forEach(function (results) {
@@ -65,7 +67,7 @@ async function carousel() {
                                                <h4>${results.title.rendered}</h4>
                                                <p>${results.excerpt.rendered}</p>
                                                </a>
-                                               </div>                                
+                                               </div>                              
                                                `
         });
 
@@ -76,25 +78,32 @@ async function carousel() {
     }
 }
 
-
+const nextImage = document.querySelector(".fa-chevron-right")
+const previousImage = document.querySelector(".fa-chevron-left")
+const dotOne = document.querySelector(".dot-one")
+const dotTwo = document.querySelector(".dot-two")
+const dotThree = document.querySelector(".dot-three")
 
 let scrollOffset = 0
+const color = "black"
+
 
 nextImage.onclick = function () {
     scrollOffset = 0
     scrollOffset += 706
 
-    if (window.innerWidth < 900) {
-        scrollOffset = 0
-        scrollOffset += 469
-    }
-
 
     carouselApiContainer.scrollBy(scrollOffset, 0);
+
 }
+
+
+
 
 previousImage.onclick = function () {
     scrollOffset = 0
     scrollOffset -= 706
+
     carouselApiContainer.scrollBy(scrollOffset, 0);
 }
+
