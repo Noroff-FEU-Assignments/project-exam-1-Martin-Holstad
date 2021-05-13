@@ -21,6 +21,7 @@ header {
   margin-top: 200px;
   padding-left: 50px;
   padding-right: 50px;
+  z-index: 3;
 }
 
 ul {

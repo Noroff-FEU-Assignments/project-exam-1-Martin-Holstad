@@ -107,10 +107,15 @@ nextImage.onclick = function () {
         dotTwo.style.color = "#4b4b4b"
         dotThree.style.color = "#f29f05"
     }
+    if (window.innerWidth <= 1000) {
+        console.log("hey")
+    }
+    console.log(scrollOffset)
 }
 
 
 previousImage.onclick = function () {
+
     scrollOffset -= 706
 
     carouselApiContainer.scroll({
@@ -141,3 +146,16 @@ backToTopButton.onclick = function () {
 
 }
 
+const mobileMenuContainer = document.querySelector(".mobile-nav-menu-container")
+const mobileMenuButton = document.querySelector(".mobile-hamburger-button")
+const mobileMenuCloseButton = document.querySelector(".mobile-nav-close-buttone")
+
+mobileMenuButton.onclick = function () {
+
+    mobileMenuContainer.style.display = "block"
+}
+
+mobileMenuCloseButton.onclick = function () {
+
+    mobileMenuContainer.style.display = "none"
+}

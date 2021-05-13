@@ -13,6 +13,9 @@ main {
   width: 100%;
   position: relative;
   margin-top: 0px;
+  margin-bottom: 15px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
 }
 
 .home-page-image {
@@ -48,7 +51,7 @@ h3 {
 
 .lastest-post-social-media {
   position: absolute;
-  bottom: 30px;
+  bottom: 22px;
   right: 0px;
 }
 
@@ -58,14 +61,13 @@ h4 {
   font-weight: normal;
 }
 
-.carouselLoaderContainer {
-  text-align: center;
-}
-
 .carousel-section {
-  display: none;
+  display: flex;
+  justify-content: center;
   position: relative;
-  width: 100%;
+  max-width: 700px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .carousel-container {
@@ -75,15 +77,13 @@ h4 {
   max-width: 700px;
   overflow: hidden;
   scroll-behavior: smooth;
-  border-top-style: solid;
-  border-width: 1px;
   padding-top: 10px;
   margin-top: -10px;
 }
 
 .carousel-image {
   width: 230px;
-  height: 160px;
+  max-height: 160px;
 }
 
 .carousel-anchor {
@@ -142,4 +142,81 @@ h4 {
   cursor: pointer;
   z-index: 1;
   border-radius: 50px;
+}
+
+@media only screen and (max-width: 900px) {
+  .fa-chevron-left {
+    left: 10px;
+    top: 15%;
+    font-size: 50px;
+    color: #fff;
+  }
+
+  .fa-chevron-right {
+    right: 10px;
+    top: 15%;
+    font-size: 50px;
+    color: #fff;
+  }
+}
+
+@media only screen and (max-width: 730px) {
+  .home-page-container {
+    max-width: 470px;
+  }
+
+  .carousel-section {
+    max-width: 470px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  h3 {
+    font-size: 20px;
+  }
+
+  .carousel-section {
+    max-width: 232px;
+  }
+
+  .fa-chevron-left {
+    left: -70px;
+    top: 20%;
+    color: #4b4b4b;
+    font-size: 30px;
+  }
+
+  .fa-chevron-right {
+    right: -60px;
+    top: 20%;
+    color: #4b4b4b;
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  h3 {
+    font-size: 20px;
+  }
+
+  .carousel-section {
+    max-width: 232px;
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  .lastest-post-social-media {
+    display: none;
+  }
+
+  .fa-chevron-left {
+    left: 10px;
+    font-size: 50px;
+    color: #fff;
+  }
+
+  .fa-chevron-right {
+    right: 10px;
+    font-size: 50px;
+    color: #fff;
+  }
 }
