@@ -85,3 +85,16 @@ p {
   font-size: 15px;
   font-weight: bold;
 }
+
+.back-to-top-arrow {
+  right: 30px;
+  bottom: 30px;
+  font-size: 40px;
+  color: red;
+  background-color: #fff;
+  position: absolute;
+  position: fixed;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50px;
+}

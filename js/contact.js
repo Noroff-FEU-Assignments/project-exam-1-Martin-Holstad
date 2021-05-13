@@ -44,3 +44,14 @@ async function contactFetch() {
 }
 
 contactFetch()
+
+const backToTopButton = document.querySelector(".back-to-top-arrow")
+
+backToTopButton.onclick = function () {
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+
+}

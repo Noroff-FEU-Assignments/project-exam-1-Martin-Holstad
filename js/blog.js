@@ -1,7 +1,6 @@
 const postsApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts";
 const postsContainer = document.querySelector(".posts-main-image-container");
 const postsReadMoreButton = document.querySelector(".posts-read-more-button")
-const viewMoreButton = document.querySelector(".view-more-button")
 
 let perPage = 10
 let offset = 0
@@ -33,7 +32,7 @@ async function fetchPosts() {
                                          <button class="posts-read-more-button">Read more</button>
                                          </a>
                                          </div>
-                                         <div>
+                                         <div class="blogg-social-media-container">
                                          <a href="https://www.messenger.com/"><i class="fab fa-facebook-messenger"></i></a>
                                          <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                                          <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
@@ -52,13 +51,15 @@ async function fetchPosts() {
 
 fetchPosts()
 
+const viewMoreButton = document.querySelector(".view-more-button")
+
 viewMoreButton.onclick = function () {
     offset = 10
     viewMoreButton.style.display = "none"
     fetchPosts()
 }
 
-const backToTopButton = document.querySelector(".back-to-top-button")
+const backToTopButton = document.querySelector(".back-to-top-arrow")
 
 backToTopButton.onclick = function () {
     window.scroll({
@@ -68,6 +69,7 @@ backToTopButton.onclick = function () {
     });
 
 }
+
 
 
 

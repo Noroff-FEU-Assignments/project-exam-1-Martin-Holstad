@@ -1,6 +1,5 @@
 const homePageApiContainer = document.querySelector(".home-page-container")
 const homePageApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/pages"
-const homePageLoaderContainer = document.querySelector(".home-page-content-loader-container")
 
 async function homePageFetch() {
     try {
@@ -8,7 +7,7 @@ async function homePageFetch() {
 
         const results = await response.json();
 
-        homePageLoaderContainer.style.display = "none"
+        carousel()
 
         function homeHtml(result) {
             homePageApiContainer.innerHTML += `<div>
@@ -78,7 +77,6 @@ async function carousel() {
     }
 }
 
-carousel()
 
 const nextImage = document.querySelector(".fa-chevron-right")
 const previousImage = document.querySelector(".fa-chevron-left")
@@ -109,7 +107,6 @@ nextImage.onclick = function () {
         dotTwo.style.color = "#4b4b4b"
         dotThree.style.color = "#f29f05"
     }
-
 }
 
 
@@ -131,5 +128,16 @@ previousImage.onclick = function () {
         dotTwo.style.color = "#4b4b4b"
         dotOne.style.color = "#f29f05"
     }
+}
+
+const backToTopButton = document.querySelector(".back-to-top-arrow")
+
+backToTopButton.onclick = function () {
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+
 }
 

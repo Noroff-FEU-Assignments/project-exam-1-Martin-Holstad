@@ -8,10 +8,6 @@ main {
   text-decoration: underline;
 }
 
-.homePageLoaderContainer {
-  text-align: center;
-}
-
 .home-page-container {
   max-width: 700px;
   width: 100%;
@@ -133,4 +129,17 @@ h4 {
 .dot-two,
 .dot-three {
   color: #4b4b4b;
+}
+
+.back-to-top-arrow {
+  right: 30px;
+  bottom: 30px;
+  font-size: 40px;
+  color: red;
+  background-color: #fff;
+  position: absolute;
+  position: fixed;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50px;
 }

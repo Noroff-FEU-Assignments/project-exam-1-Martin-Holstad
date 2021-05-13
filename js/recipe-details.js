@@ -60,11 +60,20 @@ async function recipeDetails() {
         }
 
         newHtml(postDetails)
+        const backToTopButton = document.querySelector(".back-to-top-arrow")
 
-        console.log(postDetails)
+        backToTopButton.onclick = function () {
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+            console.log(backToTopButton)
+        }
 
     }
 
     catch { }
 }
 recipeDetails()
+

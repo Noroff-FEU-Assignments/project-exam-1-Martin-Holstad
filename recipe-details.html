@@ -10,33 +10,47 @@
     <title>Document</title>
 </head>
 <header>
+    <div class="mobile-menu-button">
+        <i class="fas fa-bars mobile-hamburger-button"></i>
+    </div>
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">About</a></li>
-            <li><a href="about.html">Contact</a></li>
+            <li class="blog-nav-link"><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
     <section>
-        <div>
+        <div class="nav-social-media-container">
             <i class="fas fa-search"></i>
             <input type="search" id="search-bar-input" value="Search">
-            <a href="https://www.messenger.com/"><i class="fab fa-facebook-messenger"></i></a>
-            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+            <a class="nav-social-media" href="https://www.messenger.com/"><i class="fab fa-facebook-messenger"></i></a>
+            <a class="nav-social-media" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a class="nav-social-media" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+            <a class="nav-social-media" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
         </div>
     </section>
 </header>
 
 <body>
     <main>
+        <div class="mobile-nav-menu-container">
+            <i class="fas fa-arrow-right mobile-nav-close-buttone"></i>
+            <ul class="mobile-ul">
+                <li class="mobile-li"><a href="index.html">Home</a></li>
+                <li class="mobile-li"><a href="blog.html">Blog</a></li>
+                <li class="mobile-li"><a href="about.html">About</a></li>
+                <li class="mobile-li"><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
         <h1><a href="index.html">Food For You</a></h1>
+        <i class="fas fa-arrow-circle-up back-to-top-arrow"></i>
     </main>
     <footer></footer>
     <script src="https://kit.fontawesome.com/a74a43ea10.js" crossorigin="anonymous"></script>
     <script src="js/recipe-details.js"></script>
+    <script src="js/global.js"></script>
 </body>
 
 </html>
