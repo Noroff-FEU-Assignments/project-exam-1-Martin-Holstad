@@ -3,12 +3,13 @@ const postsContainer = document.querySelector(".posts-main-image-container");
 const postsReadMoreButton = document.querySelector(".posts-read-more-button")
 const viewMoreButton = document.querySelector(".view-more-button")
 
-let perPage = 12
+let perPage = 10
+let offset = 0
 
 
 async function fetchPosts() {
     try {
-        const response = await fetch(postsApi + "?per_page=" + perPage + "&_embed");
+        const response = await fetch(postsApi + "?per_page=" + perPage + "&offset=" + offset + "&_embed");
 
         const result = await response.json();
 
@@ -42,7 +43,6 @@ async function fetchPosts() {
                                          </section> `
         });
 
-        viewMoreButton.style.display = "block"
     }
 
     catch (error) {
@@ -53,7 +53,8 @@ async function fetchPosts() {
 fetchPosts()
 
 viewMoreButton.onclick = function () {
-    perPage = 10
+    offset = 10
+    viewMoreButton.style.display = "none"
     fetchPosts()
 }
 
