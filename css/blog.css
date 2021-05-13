@@ -98,3 +98,9 @@ p {
   z-index: 1;
   border-radius: 50px;
 }
+
+@media only screen and (max-width: 400px) {
+  .blogg-social-media-container {
+    display: none;
+  }
+}
