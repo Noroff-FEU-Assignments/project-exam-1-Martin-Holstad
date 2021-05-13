@@ -6,7 +6,6 @@ const urlDetails = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts/"
 
 
 
-
 async function recipeDetails() {
 
     try {
