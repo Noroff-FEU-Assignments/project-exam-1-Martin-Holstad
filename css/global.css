@@ -85,7 +85,7 @@ a {
   position: fixed;
   background-color: #fff;
   width: 99%;
-  height: 30%;
+  height: fit-content;
   z-index: 2;
   top: 35px;
   margin-left: -10px;
