@@ -35,20 +35,27 @@ async function homePageFetch() {
 homePageFetch()
 
 
-
-
-
-
 const carouselApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts"
 const carouselSection = document.querySelector(".carousel-section")
 const carouselApiContainer = document.querySelector(".carousel-container")
 const nextImageContainer = document.querySelector(".fa-chevron-right-container")
 const previousImageContainer = document.querySelector(".fa-chevron-left-container")
 
+let perPage = 9
+
+if (window.innerWidth <= 730) {
+
+    perPage = 6
+}
+
+if (window.innerWidth <= 500) {
+    perPage = 3
+}
+
 
 async function carousel() {
     try {
-        const response = await fetch(carouselApi + "?per_page=9&_embed");
+        const response = await fetch(carouselApi + "?per_page=" + perPage + "&_embed");
 
         const results = await response.json();
 
@@ -87,53 +94,115 @@ const dotThree = document.querySelector(".dot-three")
 let scrollOffset = 0
 
 
+
+
 nextImage.onclick = function () {
 
-    scrollOffset += 706
+    if (window.innerWidth >= 730) {
+        scrollOffset += 706
+
+        if (scrollOffset === 706) {
+            dotOne.style.color = "#4b4b4b"
+            dotTwo.style.color = "#f29f05"
+        }
+
+        if (scrollOffset >= 1412) {
+            scrollOffset = 1412
+            dotTwo.style.color = "#4b4b4b"
+            dotThree.style.color = "#f29f05"
+        }
+    }
+
+    if (window.innerWidth < 730 && window.innerWidth > 500) {
+        scrollOffset += 470
+
+        if (scrollOffset === 470) {
+            dotOne.style.color = "#4b4b4b"
+            dotTwo.style.color = "#f29f05"
+        }
+
+        if (scrollOffset >= 940) {
+            scrollOffset = 940
+            dotTwo.style.color = "#4b4b4b"
+            dotThree.style.color = "#f29f05"
+        }
+    }
+
+    if (window.innerWidth <= 500) {
+        scrollOffset += 235
+
+        if (scrollOffset === 235) {
+            dotOne.style.color = "#4b4b4b"
+            dotTwo.style.color = "#f29f05"
+        }
+
+        if (scrollOffset >= 470) {
+            scrollOffset = 470
+            dotTwo.style.color = "#4b4b4b"
+            dotThree.style.color = "#f29f05"
+        }
+    }
 
     carouselApiContainer.scroll({
         left: scrollOffset,
         behavior: 'smooth'
     });
-
-
-    if (scrollOffset === 706) {
-        dotOne.style.color = "#4b4b4b"
-        dotTwo.style.color = "#f29f05"
-    }
-
-    if (scrollOffset >= 1412) {
-        scrollOffset = 1412
-        dotTwo.style.color = "#4b4b4b"
-        dotThree.style.color = "#f29f05"
-    }
-    if (window.innerWidth <= 1000) {
-        console.log("hey")
-    }
-    console.log(scrollOffset)
 }
 
 
 previousImage.onclick = function () {
 
-    scrollOffset -= 706
+    if (window.innerWidth >= 730) {
+        scrollOffset -= 706
+
+        if (scrollOffset === 706) {
+            dotThree.style.color = "#4b4b4b"
+            dotTwo.style.color = "#f29f05"
+        }
+
+        if (scrollOffset <= 0) {
+            scrollOffset = 0
+            dotTwo.style.color = "#4b4b4b"
+            dotOne.style.color = "#f29f05"
+        }
+    }
+
+    if (window.innerWidth < 730 && window.innerWidth > 500) {
+        scrollOffset -= 470
+
+        if (scrollOffset === 470) {
+            dotThree.style.color = "#4b4b4b"
+            dotTwo.style.color = "#f29f05"
+        }
+
+        if (scrollOffset <= 0) {
+            scrollOffset = 0
+            dotTwo.style.color = "#4b4b4b"
+            dotOne.style.color = "#f29f05"
+        }
+    }
+
+    if (window.innerWidth <= 500) {
+        scrollOffset -= 235
+
+        if (scrollOffset === 235) {
+            dotThree.style.color = "#4b4b4b"
+            dotTwo.style.color = "#f29f05"
+        }
+
+        if (scrollOffset <= 0) {
+            scrollOffset = 0
+            dotTwo.style.color = "#4b4b4b"
+            dotOne.style.color = "#f29f05"
+        }
+    }
 
     carouselApiContainer.scroll({
         left: scrollOffset,
         behavior: 'smooth'
     });
-
-    if (scrollOffset === 706) {
-        dotThree.style.color = "#4b4b4b"
-        dotTwo.style.color = "#f29f05"
-    }
-
-    if (scrollOffset <= 0) {
-        scrollOffset = 0
-        dotTwo.style.color = "#4b4b4b"
-        dotOne.style.color = "#f29f05"
-    }
 }
+
 
 const backToTopButton = document.querySelector(".back-to-top-arrow")
 

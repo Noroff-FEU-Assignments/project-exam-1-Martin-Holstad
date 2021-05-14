@@ -83,7 +83,7 @@ h4 {
 
 .carousel-image {
   width: 230px;
-  max-height: 160px;
+  height: 160px;
 }
 
 .carousel-anchor {
@@ -132,8 +132,8 @@ h4 {
 }
 
 .back-to-top-arrow {
-  right: 30px;
-  bottom: 30px;
+  right: 35px;
+  bottom: 120px;
   font-size: 40px;
   color: red;
   background-color: #fff;
@@ -162,7 +162,7 @@ h4 {
   }
 }
 
-@media only screen and (max-width: 730px) {
+@media only screen and (max-width: 729px) {
   .home-page-container {
     max-width: 470px;
   }

@@ -87,8 +87,8 @@ p {
 }
 
 .back-to-top-arrow {
-  right: 30px;
-  bottom: 30px;
+  right: 35px;
+  bottom: 120px;
   font-size: 40px;
   color: red;
   background-color: #fff;
@@ -98,7 +98,6 @@ p {
   z-index: 1;
   border-radius: 50px;
 }
-
 @media only screen and (max-width: 400px) {
   .blogg-social-media-container {
     display: none;
