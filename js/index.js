@@ -38,6 +38,7 @@ homePageFetch()
 const carouselApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts"
 const carouselSection = document.querySelector(".carousel-section")
 const carouselApiContainer = document.querySelector(".carousel-container")
+const carouselDotsContainer = document.querySelector(".carousel-dots-container")
 const nextImageContainer = document.querySelector(".fa-chevron-right-container")
 const previousImageContainer = document.querySelector(".fa-chevron-left-container")
 
@@ -61,8 +62,7 @@ async function carousel() {
 
         nextImageContainer.style.display = "block"
         previousImageContainer.style.display = "block"
-        carouselSection.style.display = "block"
-
+        carouselDotsContainer.style.display = "block"
 
         results.forEach(function (results) {
             carouselApiContainer.innerHTML += `
@@ -76,7 +76,6 @@ async function carousel() {
                                                                             
                                                `
         });
-
     }
 
     catch (error) {
@@ -94,53 +93,23 @@ const dotThree = document.querySelector(".dot-three")
 let scrollOffset = 0
 
 
-
-
 nextImage.onclick = function () {
 
     if (window.innerWidth >= 730) {
         scrollOffset += 706
 
-        if (scrollOffset === 706) {
-            dotOne.style.color = "#4b4b4b"
-            dotTwo.style.color = "#f29f05"
-        }
-
-        if (scrollOffset >= 1412) {
-            scrollOffset = 1412
-            dotTwo.style.color = "#4b4b4b"
-            dotThree.style.color = "#f29f05"
-        }
+        carouselThreeImageNext()
     }
 
     if (window.innerWidth < 730 && window.innerWidth > 500) {
         scrollOffset += 470
 
-        if (scrollOffset === 470) {
-            dotOne.style.color = "#4b4b4b"
-            dotTwo.style.color = "#f29f05"
-        }
-
-        if (scrollOffset >= 940) {
-            scrollOffset = 940
-            dotTwo.style.color = "#4b4b4b"
-            dotThree.style.color = "#f29f05"
-        }
+        carouselTwoImageNext()
     }
 
     if (window.innerWidth <= 500) {
         scrollOffset += 235
-
-        if (scrollOffset === 235) {
-            dotOne.style.color = "#4b4b4b"
-            dotTwo.style.color = "#f29f05"
-        }
-
-        if (scrollOffset >= 470) {
-            scrollOffset = 470
-            dotTwo.style.color = "#4b4b4b"
-            dotThree.style.color = "#f29f05"
-        }
+        carouselOneImageNext()
     }
 
     carouselApiContainer.scroll({
@@ -149,58 +118,142 @@ nextImage.onclick = function () {
     });
 }
 
+function carouselThreeImageNext() {
+
+    if (scrollOffset === 706) {
+        dotOne.style.color = "#4b4b4b"
+        dotTwo.style.color = "#f29f05"
+    }
+
+    if (scrollOffset >= 1412) {
+        dotTwo.style.color = "#4b4b4b"
+        dotThree.style.color = "#f29f05"
+    }
+
+    if (scrollOffset > 1412) {
+        scrollOffset = 0
+        dotOne.style.color = "#f29f05"
+        dotThree.style.color = "#4b4b4b"
+    }
+}
+
+function carouselTwoImageNext() {
+
+    if (scrollOffset === 470) {
+        dotOne.style.color = "#4b4b4b"
+        dotTwo.style.color = "#f29f05"
+    }
+
+    if (scrollOffset >= 940) {
+        dotTwo.style.color = "#4b4b4b"
+        dotThree.style.color = "#f29f05"
+    }
+
+    if (scrollOffset > 940) {
+        scrollOffset = 0
+        dotOne.style.color = "#f29f05"
+        dotThree.style.color = "#4b4b4b"
+    }
+}
+
+function carouselOneImageNext() {
+
+    if (scrollOffset === 235) {
+        dotOne.style.color = "#4b4b4b"
+        dotTwo.style.color = "#f29f05"
+    }
+
+    if (scrollOffset >= 470) {
+        dotTwo.style.color = "#4b4b4b"
+        dotThree.style.color = "#f29f05"
+    }
+
+    if (scrollOffset > 470) {
+        scrollOffset = 0
+        dotOne.style.color = "#f29f05"
+        dotThree.style.color = "#4b4b4b"
+    }
+}
+
 
 previousImage.onclick = function () {
 
     if (window.innerWidth >= 730) {
         scrollOffset -= 706
-
-        if (scrollOffset === 706) {
-            dotThree.style.color = "#4b4b4b"
-            dotTwo.style.color = "#f29f05"
-        }
-
-        if (scrollOffset <= 0) {
-            scrollOffset = 0
-            dotTwo.style.color = "#4b4b4b"
-            dotOne.style.color = "#f29f05"
-        }
+        carouselThreeImagePrevious()
     }
 
     if (window.innerWidth < 730 && window.innerWidth > 500) {
         scrollOffset -= 470
-
-        if (scrollOffset === 470) {
-            dotThree.style.color = "#4b4b4b"
-            dotTwo.style.color = "#f29f05"
-        }
-
-        if (scrollOffset <= 0) {
-            scrollOffset = 0
-            dotTwo.style.color = "#4b4b4b"
-            dotOne.style.color = "#f29f05"
-        }
+        carouselTwoImagePrevious()
     }
 
     if (window.innerWidth <= 500) {
         scrollOffset -= 235
-
-        if (scrollOffset === 235) {
-            dotThree.style.color = "#4b4b4b"
-            dotTwo.style.color = "#f29f05"
-        }
-
-        if (scrollOffset <= 0) {
-            scrollOffset = 0
-            dotTwo.style.color = "#4b4b4b"
-            dotOne.style.color = "#f29f05"
-        }
+        carouselOneImagePrevious()
     }
 
     carouselApiContainer.scroll({
         left: scrollOffset,
         behavior: 'smooth'
     });
+}
+
+function carouselThreeImagePrevious() {
+
+    if (scrollOffset === 706) {
+        dotThree.style.color = "#4b4b4b"
+        dotTwo.style.color = "#f29f05"
+    }
+
+    if (scrollOffset <= 0) {
+        dotTwo.style.color = "#4b4b4b"
+        dotOne.style.color = "#f29f05"
+    }
+
+    if (scrollOffset < 0) {
+        scrollOffset = 1412
+        dotOne.style.color = "#4b4b4b"
+        dotThree.style.color = "#f29f05"
+    }
+}
+
+function carouselTwoImagePrevious() {
+
+    if (scrollOffset === 470) {
+        dotThree.style.color = "#4b4b4b"
+        dotTwo.style.color = "#f29f05"
+    }
+
+    if (scrollOffset <= 0) {
+        dotTwo.style.color = "#4b4b4b"
+        dotOne.style.color = "#f29f05"
+    }
+
+    if (scrollOffset < 0) {
+        scrollOffset = 940
+        dotOne.style.color = "#4b4b4b"
+        dotThree.style.color = "#f29f05"
+    }
+}
+
+function carouselOneImagePrevious() {
+
+    if (scrollOffset === 235) {
+        dotThree.style.color = "#4b4b4b"
+        dotTwo.style.color = "#f29f05"
+    }
+
+    if (scrollOffset <= 0) {
+        dotTwo.style.color = "#4b4b4b"
+        dotOne.style.color = "#f29f05"
+    }
+
+    if (scrollOffset < 0) {
+        scrollOffset = 470
+        dotOne.style.color = "#4b4b4b"
+        dotThree.style.color = "#f29f05"
+    }
 }
 
 

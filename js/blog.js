@@ -2,6 +2,7 @@ const postsApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts";
 const postsContainer = document.querySelector(".posts-main-image-container");
 const postsReadMoreButton = document.querySelector(".posts-read-more-button")
 
+
 let perPage = 10
 let offset = 0
 
@@ -41,15 +42,12 @@ async function fetchPosts() {
                                          </div>
                                          </section> `
         });
-
     }
 
     catch (error) {
 
     }
 }
-
-fetchPosts()
 
 const viewMoreButton = document.querySelector(".view-more-button")
 
@@ -58,6 +56,8 @@ viewMoreButton.onclick = function () {
     viewMoreButton.style.display = "none"
     fetchPosts()
 }
+fetchPosts()
+
 
 const backToTopButton = document.querySelector(".back-to-top-arrow")
 
