@@ -1,9 +1,9 @@
-const postSection = document.querySelector("main")
+const postSection = document.querySelector(".recipe-section")
 const stringDetails = document.location.search;
 const newUrlDetails = new URLSearchParams(stringDetails);
 const idDetails = newUrlDetails.get("id")
 const urlDetails = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts/" + idDetails + "&_embed";
-
+const imageModulePopupContainer = document.querySelector(".image-module-popup-container")
 
 
 async function recipeDetails() {
@@ -13,12 +13,10 @@ async function recipeDetails() {
 
         const postDetails = await response.json()
 
-
-
         function newHtml(postDetails) {
 
             postSection.innerHTML += `
-                                      <section class ="post-container">
+                                      <div class ="post-container">
                                       <div class="image-module">
                                       <img src="${postDetails._embedded['wp:featuredmedia'][0].source_url}" alt ="${postDetails.title.rendered}">
                                       </div>
@@ -28,7 +26,7 @@ async function recipeDetails() {
                                       <div>
                                       ${postDetails.content.rendered}
                                       </div>
-                                      </section>
+                                      </div>
                                       <form class="add-a-comment-form">
                                       <div class="social-media-container">
                                       <a href="https://www.messenger.com/"><i class="fab fa-facebook-messenger"></i></a>
@@ -57,33 +55,32 @@ async function recipeDetails() {
                                       </form>                                   
                                       `
         }
-
         newHtml(postDetails)
-        const backToTopButton = document.querySelector(".back-to-top-arrow")
-
-        backToTopButton.onclick = function () {
-            window.scroll({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
-            console.log(backToTopButton)
-        }
-        const mobileMenuContainer = document.querySelector(".mobile-nav-menu-container")
-        const mobileMenuButton = document.querySelector(".mobile-hamburger-button")
-
-        mobileMenuButton.onclick = function () {
-
-            if (mobileMenuContainer.style.display === "none") {
-                mobileMenuContainer.style.display = "block"
-            } else {
-                mobileMenuContainer.style.display = "none"
-            }
-        }
-
     }
 
     catch { }
 }
 recipeDetails()
 
+const backToTopButton = document.querySelector(".back-to-top-arrow")
+
+backToTopButton.onclick = function () {
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+}
+
+
+const mobileMenuContainer = document.querySelector(".mobile-nav-menu-container")
+const mobileMenuButton = document.querySelector(".mobile-hamburger-button")
+
+mobileMenuButton.onclick = function () {
+
+    if (mobileMenuContainer.style.display === "none") {
+        mobileMenuContainer.style.display = "block"
+    } else {
+        mobileMenuContainer.style.display = "none"
+    }
+}
