@@ -72,13 +72,6 @@ a {
   padding-right: 10px;
 }
 
-.mobile-nav-close-buttone {
-  position: absolute;
-  font-size: 30px;
-  top: 20px;
-  right: 30px;
-}
-
 .mobile-nav-menu-container {
   font-family: Arial, Helvetica, sans-serif;
   display: none;
