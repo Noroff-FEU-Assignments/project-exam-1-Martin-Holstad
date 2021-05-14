@@ -3,9 +3,8 @@ const postsContainer = document.querySelector(".posts-main-image-container");
 const postsReadMoreButton = document.querySelector(".posts-read-more-button")
 
 
-let perPage = 10
+let perPage = 6
 let offset = 0
-
 
 async function fetchPosts() {
     try {
@@ -42,22 +41,26 @@ async function fetchPosts() {
                                          </div>
                                          </section> `
         });
+
+        viewMoreButton.style.display = "block"
+
+        if (offset === 6) {
+            viewMoreButton.style.display = "none"
+        }
     }
 
     catch (error) {
-
     }
 }
+fetchPosts()
+
 
 const viewMoreButton = document.querySelector(".view-more-button")
 
 viewMoreButton.onclick = function () {
-    offset = 10
-    viewMoreButton.style.display = "none"
+    offset = 6
     fetchPosts()
 }
-fetchPosts()
-
 
 const backToTopButton = document.querySelector(".back-to-top-arrow")
 
@@ -68,6 +71,7 @@ backToTopButton.onclick = function () {
     });
 
 }
+
 
 const mobileMenuContainer = document.querySelector(".mobile-nav-menu-container")
 const mobileMenuButton = document.querySelector(".mobile-hamburger-button")

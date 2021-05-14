@@ -7,8 +7,6 @@ async function homePageFetch() {
 
         const results = await response.json();
 
-        carousel()
-
         function homeHtml(result) {
             homePageApiContainer.innerHTML += `<div>
                                                <h2 class="home-page-h2">${result.title.rendered}</h2>
@@ -47,10 +45,12 @@ let perPage = 9
 if (window.innerWidth <= 730) {
 
     perPage = 6
-}
 
-if (window.innerWidth <= 500) {
+} else if (window.innerWidth <= 500) {
     perPage = 3
+
+} else {
+    perPage = 9
 }
 
 
@@ -82,6 +82,7 @@ async function carousel() {
         console.log(error)
     }
 }
+carousel()
 
 
 const nextImage = document.querySelector(".fa-chevron-right")
@@ -90,26 +91,20 @@ const dotOne = document.querySelector(".dot-one")
 const dotTwo = document.querySelector(".dot-two")
 const dotThree = document.querySelector(".dot-three")
 
-let scrollOffset = 0
+const windowWidth = window.innerWidth;
+let scrollOffset = 0;
 
 
 nextImage.onclick = function () {
 
-    if (window.innerWidth >= 730) {
-        scrollOffset += 706
-
+    if (windowWidth >= 730) {
         carouselThreeImageNext()
-    }
-
-    if (window.innerWidth < 730 && window.innerWidth > 500) {
-        scrollOffset += 470
-
+    } else if (windowWidth < 730 && windowWidth > 500) {
         carouselTwoImageNext()
-    }
-
-    if (window.innerWidth <= 500) {
-        scrollOffset += 235
+    } else if (windowWidth <= 500) {
         carouselOneImageNext()
+    } else {
+        scrollOffset = 0
     }
 
     carouselApiContainer.scroll({
@@ -119,18 +114,17 @@ nextImage.onclick = function () {
 }
 
 function carouselThreeImageNext() {
+    scrollOffset += 706
 
-    if (scrollOffset === 706) {
-        dotOne.style.color = "#4b4b4b"
-        dotTwo.style.color = "#f29f05"
-    }
-
-    if (scrollOffset >= 1412) {
+    if (scrollOffset === 1412) {
         dotTwo.style.color = "#4b4b4b"
         dotThree.style.color = "#f29f05"
-    }
 
-    if (scrollOffset > 1412) {
+    } else if (scrollOffset === 706) {
+        dotOne.style.color = "#4b4b4b"
+        dotTwo.style.color = "#f29f05"
+
+    } else {
         scrollOffset = 0
         dotOne.style.color = "#f29f05"
         dotThree.style.color = "#4b4b4b"
@@ -138,18 +132,17 @@ function carouselThreeImageNext() {
 }
 
 function carouselTwoImageNext() {
+    scrollOffset += 470
 
-    if (scrollOffset === 470) {
-        dotOne.style.color = "#4b4b4b"
-        dotTwo.style.color = "#f29f05"
-    }
-
-    if (scrollOffset >= 940) {
+    if (scrollOffset === 940) {
         dotTwo.style.color = "#4b4b4b"
         dotThree.style.color = "#f29f05"
-    }
 
-    if (scrollOffset > 940) {
+    } else if (scrollOffset === 470) {
+        dotOne.style.color = "#4b4b4b"
+        dotTwo.style.color = "#f29f05"
+
+    } else {
         scrollOffset = 0
         dotOne.style.color = "#f29f05"
         dotThree.style.color = "#4b4b4b"
@@ -157,18 +150,17 @@ function carouselTwoImageNext() {
 }
 
 function carouselOneImageNext() {
+    scrollOffset += 235
 
-    if (scrollOffset === 235) {
-        dotOne.style.color = "#4b4b4b"
-        dotTwo.style.color = "#f29f05"
-    }
-
-    if (scrollOffset >= 470) {
+    if (scrollOffset === 470) {
         dotTwo.style.color = "#4b4b4b"
         dotThree.style.color = "#f29f05"
-    }
 
-    if (scrollOffset > 470) {
+    } else if (scrollOffset === 235) {
+        dotOne.style.color = "#4b4b4b"
+        dotTwo.style.color = "#f29f05"
+
+    } else {
         scrollOffset = 0
         dotOne.style.color = "#f29f05"
         dotThree.style.color = "#4b4b4b"
@@ -178,19 +170,14 @@ function carouselOneImageNext() {
 
 previousImage.onclick = function () {
 
-    if (window.innerWidth >= 730) {
-        scrollOffset -= 706
+    if (windowWidth >= 730) {
         carouselThreeImagePrevious()
-    }
-
-    if (window.innerWidth < 730 && window.innerWidth > 500) {
-        scrollOffset -= 470
+    } else if (windowWidth < 730 && windowWidth > 500) {
         carouselTwoImagePrevious()
-    }
-
-    if (window.innerWidth <= 500) {
-        scrollOffset -= 235
+    } else if (windowWidth <= 500) {
         carouselOneImagePrevious()
+    } else {
+        carouselThreeImagePrevious()
     }
 
     carouselApiContainer.scroll({
@@ -200,18 +187,17 @@ previousImage.onclick = function () {
 }
 
 function carouselThreeImagePrevious() {
+    scrollOffset -= 706
 
     if (scrollOffset === 706) {
         dotThree.style.color = "#4b4b4b"
         dotTwo.style.color = "#f29f05"
-    }
 
-    if (scrollOffset <= 0) {
+    } else if (scrollOffset === 0) {
         dotTwo.style.color = "#4b4b4b"
         dotOne.style.color = "#f29f05"
-    }
 
-    if (scrollOffset < 0) {
+    } else {
         scrollOffset = 1412
         dotOne.style.color = "#4b4b4b"
         dotThree.style.color = "#f29f05"
@@ -219,18 +205,17 @@ function carouselThreeImagePrevious() {
 }
 
 function carouselTwoImagePrevious() {
+    scrollOffset -= 470
 
     if (scrollOffset === 470) {
         dotThree.style.color = "#4b4b4b"
         dotTwo.style.color = "#f29f05"
-    }
 
-    if (scrollOffset <= 0) {
+    } else if (scrollOffset === 0) {
         dotTwo.style.color = "#4b4b4b"
         dotOne.style.color = "#f29f05"
-    }
 
-    if (scrollOffset < 0) {
+    } else {
         scrollOffset = 940
         dotOne.style.color = "#4b4b4b"
         dotThree.style.color = "#f29f05"
@@ -238,18 +223,17 @@ function carouselTwoImagePrevious() {
 }
 
 function carouselOneImagePrevious() {
+    scrollOffset -= 235
 
     if (scrollOffset === 235) {
         dotThree.style.color = "#4b4b4b"
         dotTwo.style.color = "#f29f05"
-    }
 
-    if (scrollOffset <= 0) {
+    } else if (scrollOffset === 0) {
         dotTwo.style.color = "#4b4b4b"
         dotOne.style.color = "#f29f05"
-    }
 
-    if (scrollOffset < 0) {
+    } else {
         scrollOffset = 470
         dotOne.style.color = "#4b4b4b"
         dotThree.style.color = "#f29f05"
