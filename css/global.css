@@ -63,7 +63,7 @@ a {
   outline: none;
 }
 
-.mobile-menu-button {
+.mobile-nav-menu-button {
   display: none;
   font-size: 25px;
   text-align: end;
@@ -168,7 +168,7 @@ footer {
     display: none;
   }
 
-  .mobile-menu-button {
+  .mobile-nav-menu-button {
     display: block;
   }
 }
