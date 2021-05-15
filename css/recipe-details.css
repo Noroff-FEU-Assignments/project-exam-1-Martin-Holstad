@@ -14,7 +14,7 @@ main {
   position: absolute;
   position: fixed;
   background-color: rgba(0, 0, 0, 0.8);
-  margin-top: -255px;
+  top: 0px;
   margin-left: -10px;
   height: 100%;
   width: 100%;
@@ -22,8 +22,22 @@ main {
   cursor: zoom-out;
 }
 
+.modal-image-center {
+  display: flex;
+  justify-content: center;
+}
+
 .modal-image {
   cursor: default;
+}
+
+.image-modal-cross {
+  position: absolute;
+  font-size: 30px;
+  top: 30px;
+  right: 30px;
+  color: #fff;
+  cursor: pointer;
 }
 
 figure,
@@ -159,4 +173,10 @@ label {
   cursor: pointer;
   z-index: 1;
   border-radius: 50px;
+}
+
+@media only screen and (max-width: 544px) {
+  .image-modal-container {
+    margin-top: 35px;
+  }
 }

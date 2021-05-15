@@ -3,8 +3,8 @@ const stringDetails = document.location.search;
 const newUrlDetails = new URLSearchParams(stringDetails);
 const idDetails = newUrlDetails.get("id")
 const urlDetails = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts/" + idDetails + "&_embed";
-const imageModalContainer = document.querySelector(".image-modal-container")
-const modalImage = document.querySelector(".modal-image")
+
+
 
 async function recipeDetails() {
 
@@ -57,6 +57,10 @@ async function recipeDetails() {
         }
         newHtml(postDetails)
 
+        const imageModalContainer = document.querySelector(".image-modal-container")
+        const imageModalCenter = document.querySelector(".modal-image-center")
+        const modalImage = document.querySelector(".modal-image")
+        const modalImageCloseButton = document.querySelector(".image-modal-cross")
         const images = document.querySelectorAll("img")
 
         images.forEach(function (image) {
@@ -66,11 +70,18 @@ async function recipeDetails() {
             }
         })
 
-        imageModalContainer.onclick = function () {
+        imageModalContainer.onclick = function (event) {
+            if (event.target === imageModalContainer || event.target === imageModalCenter) {
+                imageModalContainer.style.display = "none"
+            }
+        }
+
+        modalImageCloseButton.onclick = function () {
             imageModalContainer.style.display = "none"
         }
     }
 
     catch { }
 }
+
 recipeDetails()
