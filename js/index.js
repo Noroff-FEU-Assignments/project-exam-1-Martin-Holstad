@@ -30,9 +30,7 @@ async function homePageFetch() {
         console.log(error)
     }
 }
-
 homePageFetch()
-
 
 const carouselApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts"
 const carouselSection = document.querySelector(".carousel-section")
@@ -73,8 +71,7 @@ async function carousel() {
                                                <h4>${results.title.rendered}</h4>
                                                <p>${results.excerpt.rendered}</p>
                                                </a>
-                                               </div>
-                                                                            
+                                               </div>                             
                                                `
         });
     }
@@ -92,9 +89,7 @@ const dotOne = document.querySelector(".dot-one")
 const dotTwo = document.querySelector(".dot-two")
 const dotThree = document.querySelector(".dot-three")
 
-
 let scrollOffset = 0;
-
 
 nextImage.onclick = function () {
     const windowWidth = window.innerWidth;
@@ -168,7 +163,6 @@ function carouselOneImageNext() {
         dotThree.style.color = "#4b4b4b"
     }
 }
-
 
 previousImage.onclick = function () {
     const windowWidth = window.innerWidth;

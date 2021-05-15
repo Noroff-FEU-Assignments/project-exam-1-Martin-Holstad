@@ -21,7 +21,7 @@ async function recipeDetails() {
                                       <img src="${postDetails._embedded['wp:featuredmedia'][0].source_url}" alt ="${postDetails.title.rendered}">
                                       </div>
                                       <h2>${postDetails.title.rendered}</h2>
-                                      <p class="post-date">Date: ${postDetails.date.slice(0, 10)}</p>
+                                      <p class="post-date">Posted on: ${postDetails.date.slice(0, 10)}</p>
                                       <p class="post-author">Recipe from: ${postDetails._embedded.author[0].name}</p>
                                       <div>
                                       ${postDetails.content.rendered}
