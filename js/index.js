@@ -27,6 +27,7 @@ async function homePageFetch() {
     }
 
     catch (error) {
+        console.log(error)
     }
 }
 
@@ -91,11 +92,12 @@ const dotOne = document.querySelector(".dot-one")
 const dotTwo = document.querySelector(".dot-two")
 const dotThree = document.querySelector(".dot-three")
 
-const windowWidth = window.innerWidth;
+
 let scrollOffset = 0;
 
 
 nextImage.onclick = function () {
+    const windowWidth = window.innerWidth;
 
     if (windowWidth >= 730) {
         carouselThreeImageNext()
@@ -169,6 +171,7 @@ function carouselOneImageNext() {
 
 
 previousImage.onclick = function () {
+    const windowWidth = window.innerWidth;
 
     if (windowWidth >= 730) {
         carouselThreeImagePrevious()
@@ -237,29 +240,5 @@ function carouselOneImagePrevious() {
         scrollOffset = 470
         dotOne.style.color = "#4b4b4b"
         dotThree.style.color = "#f29f05"
-    }
-}
-
-
-const backToTopButton = document.querySelector(".back-to-top-arrow")
-
-backToTopButton.onclick = function () {
-    window.scroll({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-    });
-
-}
-
-const mobileMenuContainer = document.querySelector(".mobile-nav-menu-container")
-const mobileMenuButton = document.querySelector(".mobile-hamburger-button")
-
-mobileMenuButton.onclick = function () {
-
-    if (mobileMenuContainer.style.display === "none") {
-        mobileMenuContainer.style.display = "block"
-    } else {
-        mobileMenuContainer.style.display = "none"
     }
 }

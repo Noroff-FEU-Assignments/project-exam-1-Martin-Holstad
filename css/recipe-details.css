@@ -9,10 +9,21 @@ main {
   max-width: 700px;
 }
 
-.image-module {
-  cursor: pointer;
-  max-height: 500px;
+.image-modal-container {
+  display: none;
+  position: absolute;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-top: -255px;
+  margin-left: -10px;
+  height: 100%;
   width: 100%;
+  z-index: 4;
+  cursor: zoom-out;
+}
+
+.modal-image {
+  cursor: default;
 }
 
 figure,
@@ -22,6 +33,7 @@ img {
   margin-left: 0px;
   max-height: 500px;
   height: 100%;
+  cursor: zoom-in;
 }
 
 figure {

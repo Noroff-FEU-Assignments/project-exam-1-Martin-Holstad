@@ -3,8 +3,8 @@ const stringDetails = document.location.search;
 const newUrlDetails = new URLSearchParams(stringDetails);
 const idDetails = newUrlDetails.get("id")
 const urlDetails = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts/" + idDetails + "&_embed";
-const imageModulePopupContainer = document.querySelector(".image-module-popup-container")
-
+const imageModalContainer = document.querySelector(".image-modal-container")
+const modalImage = document.querySelector(".modal-image")
 
 async function recipeDetails() {
 
@@ -56,31 +56,21 @@ async function recipeDetails() {
                                       `
         }
         newHtml(postDetails)
+
+        const images = document.querySelectorAll("img")
+
+        images.forEach(function (image) {
+            image.onclick = function () {
+                imageModalContainer.style.display = "block"
+                modalImage.src = image.src
+            }
+        })
+
+        imageModalContainer.onclick = function () {
+            imageModalContainer.style.display = "none"
+        }
     }
 
     catch { }
 }
 recipeDetails()
-
-const backToTopButton = document.querySelector(".back-to-top-arrow")
-
-backToTopButton.onclick = function () {
-    window.scroll({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-    });
-}
-
-
-const mobileMenuContainer = document.querySelector(".mobile-nav-menu-container")
-const mobileMenuButton = document.querySelector(".mobile-hamburger-button")
-
-mobileMenuButton.onclick = function () {
-
-    if (mobileMenuContainer.style.display === "none") {
-        mobileMenuContainer.style.display = "block"
-    } else {
-        mobileMenuContainer.style.display = "none"
-    }
-}

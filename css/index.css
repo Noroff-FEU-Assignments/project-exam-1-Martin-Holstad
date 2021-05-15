@@ -181,6 +181,8 @@ h4 {
 @media only screen and (max-width: 500px) {
   .home-page-container {
     max-width: 370px;
+    border-bottom-width: 0px;
+    text-align: center;
   }
 
   .lastest-post-social-media {
@@ -189,6 +191,9 @@ h4 {
 
   h3 {
     font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 230px;
   }
 
   .carousel-section {
