@@ -108,6 +108,7 @@ nextImage.onclick = function () {
         left: scrollOffset,
         behavior: 'smooth'
     });
+    console.log(scrollOffset)
 }
 
 function carouselThreeImageNext() {
@@ -124,8 +125,10 @@ function carouselThreeImageNext() {
     } else {
         scrollOffset = 0
         dotOne.style.color = "#f29f05"
+        dotTwo.style.color = "#4b4b4b"
         dotThree.style.color = "#4b4b4b"
     }
+
 }
 
 function carouselTwoImageNext() {
@@ -142,6 +145,7 @@ function carouselTwoImageNext() {
     } else {
         scrollOffset = 0
         dotOne.style.color = "#f29f05"
+        dotTwo.style.color = "#4b4b4b"
         dotThree.style.color = "#4b4b4b"
     }
 }
@@ -160,6 +164,7 @@ function carouselOneImageNext() {
     } else {
         scrollOffset = 0
         dotOne.style.color = "#f29f05"
+        dotTwo.style.color = "#4b4b4b"
         dotThree.style.color = "#4b4b4b"
     }
 }
@@ -174,13 +179,14 @@ previousImage.onclick = function () {
     } else if (windowWidth <= 500) {
         carouselOneImagePrevious()
     } else {
-        carouselThreeImagePrevious()
+        scrollOffset = 0
     }
 
     carouselApiContainer.scroll({
         left: scrollOffset,
         behavior: 'smooth'
     });
+    console.log(scrollOffset)
 }
 
 function carouselThreeImagePrevious() {
@@ -197,6 +203,7 @@ function carouselThreeImagePrevious() {
     } else {
         scrollOffset = 1412
         dotOne.style.color = "#4b4b4b"
+        dotTwo.style.color = "#4b4b4b"
         dotThree.style.color = "#f29f05"
     }
 }
@@ -209,12 +216,14 @@ function carouselTwoImagePrevious() {
         dotTwo.style.color = "#f29f05"
 
     } else if (scrollOffset === 0) {
+        dotThree.style.color = "#4b4b4b"
         dotTwo.style.color = "#4b4b4b"
         dotOne.style.color = "#f29f05"
 
     } else {
         scrollOffset = 940
         dotOne.style.color = "#4b4b4b"
+        dotTwo.style.color = "#4b4b4b"
         dotThree.style.color = "#f29f05"
     }
 }
@@ -233,6 +242,7 @@ function carouselOneImagePrevious() {
     } else {
         scrollOffset = 470
         dotOne.style.color = "#4b4b4b"
+        dotTwo.style.color = "#4b4b4b"
         dotThree.style.color = "#f29f05"
     }
 }
