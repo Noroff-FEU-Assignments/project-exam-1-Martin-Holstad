@@ -16,7 +16,7 @@ main {
   top: 0px;
   left: 0px;
   right: 0px;
-  height: 1000px;
+  bottom: 0px;
   z-index: 4;
   cursor: zoom-out;
 }
@@ -179,5 +179,8 @@ label {
 @media only screen and (max-width: 544px) {
   .image-modal-container {
     margin-top: 35px;
+  }
+  .modal-image-center {
+    min-height: 912px;
   }
 }
