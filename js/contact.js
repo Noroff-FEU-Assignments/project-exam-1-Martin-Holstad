@@ -16,19 +16,19 @@ async function contactFetch() {
                                              <form class="contact-form">
                                              <div class="name-container">
                                              <label for="name-input" class="name-label">Name*</label>
-                                             <input type="text" id="name-input" value="Name">
+                                             <input type="text" id="name-input" placeholder="Enter name here">
                                              </div>
                                              <div class="email-container">
                                              <label for="email-input" class="email-label">Email*</label>
-                                             <input type="text" id="email-input" value="Email">
+                                             <input type="text" id="email-input" placeholder="Enter email here">
                                              </div>
                                              <div class="subject-container">
                                              <label for="subject-input" class="subject-label">Subject*</label>
-                                             <input type="text" id="subject-input" value="Subject">
+                                             <input type="text" id="subject-input" placeholder="Enter subject here">
                                              </div>
                                              <div class="message-container">
                                              <label for="message-input" class="message-label">Message*</label>
-                                             <textarea name="message-input" id="message-input">Message*</textarea>
+                                             <textarea name="message-input" id="message-input" placeholder="Enter message here"></textarea>
                                              </div>
                                              <div class="contact-submit-button-container">
                                              <button class="contact-submit-button">Add comment</button>
