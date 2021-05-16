@@ -43,7 +43,6 @@ async function fetchPosts() {
         });
 
         viewMoreButton.style.display = "block"
-
         if (offset === 6) {
             viewMoreButton.style.display = "none"
         }
