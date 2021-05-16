@@ -11,13 +11,12 @@ main {
 
 .image-modal-container {
   display: none;
-  position: absolute;
   position: fixed;
   background-color: rgba(0, 0, 0, 0.8);
   top: 0px;
-  margin-left: -10px;
-  height: 100%;
-  width: 100%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
   z-index: 4;
   cursor: zoom-out;
 }
@@ -25,10 +24,13 @@ main {
 .modal-image-center {
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 1000px;
 }
 
 .modal-image {
   cursor: default;
+  max-width: 1000px;
 }
 
 .image-modal-cross {
@@ -45,7 +47,6 @@ img {
   max-width: 700px;
   width: 100%;
   margin-left: 0px;
-  max-height: 500px;
   height: 100%;
   cursor: zoom-in;
 }
