@@ -20,3 +20,17 @@ mobileMenuButton.onclick = function () {
         mobileMenuContainer.style.display = "none"
     }
 }
+
+function checklength(value, len) {
+    if (value.trim().length >= len) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function emailRequirements(email) {
+    const requirements = /\S+@\S+\.\S+/;
+    const emailMatch = requirements.test(email);
+    return emailMatch;
+}
