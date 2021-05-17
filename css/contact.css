@@ -50,8 +50,9 @@ p {
 }
 
 .contact-success-icon {
-  margin-left: 10px;
   color: green;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .new-message-button {
