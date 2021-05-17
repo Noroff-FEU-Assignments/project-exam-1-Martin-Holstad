@@ -25,7 +25,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 950px;
+  padding-top: 75px;
 }
 
 .modal-image {
@@ -179,8 +179,5 @@ label {
 @media only screen and (max-width: 544px) {
   .image-modal-container {
     margin-top: 35px;
-  }
-  .modal-image-center {
-    min-height: 912px;
   }
 }
