@@ -36,31 +36,45 @@ p {
   color: #4b4b4b;
 }
 
-label {
-  display: block;
+.contact-section {
+  display: none;
 }
 
-.name-label,
-.email-label,
-.subject-label,
-.message-label {
+.contact-success-message {
+  display: none;
+  margin-top: 40px;
+  border-color: green;
+  border-style: solid;
+  border-width: 2px;
+  text-align: center;
+}
+
+.contact-success-icon {
+  margin-left: 10px;
+  color: green;
+}
+
+.new-message-button {
+  display: none;
+  width: 130px;
+  height: 30px;
+  border-radius: 20px;
+  border-style: none;
+  cursor: pointer;
+  background-color: #f29f05;
+  color: #fff;
+  font-weight: bold;
+  outline: none;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.name-container,
+.email-container,
+.subject-container {
+  max-width: 300px;
   margin-bottom: 10px;
-  font-size: 15px;
-}
-
-#message-input {
-  width: 100%;
-  height: 100px;
-  color: grey;
-  outline: none;
-}
-
-#name-input,
-#email-input,
-#subject-input {
-  width: 100%;
-  height: 25px;
-  outline: none;
 }
 
 .name-container,
@@ -71,11 +85,42 @@ label {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.name-container,
-.email-container,
-.subject-container {
-  max-width: 300px;
+label {
+  display: block;
+}
+
+.name-label,
+.email-label,
+.subject-label,
+.message-label {
+  margin-top: 30px;
   margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.name-error-style,
+.email-error-style,
+.subject-error-style,
+.message-error-style {
+  display: none;
+  color: red;
+  margin: 0px 0px 5px 0px;
+}
+
+#name-input,
+#email-input,
+#subject-input {
+  width: 100%;
+  height: 25px;
+  outline: none;
+  border-width: 1px;
+}
+
+#message-input {
+  width: 100%;
+  height: 100px;
+  outline: none;
+  border-width: 1px;
 }
 
 .contact-submit-button-container {
@@ -91,6 +136,7 @@ label {
   background-color: #f29f05;
   color: #fff;
   font-weight: bold;
+  outline: none;
 }
 
 .back-to-top-arrow {

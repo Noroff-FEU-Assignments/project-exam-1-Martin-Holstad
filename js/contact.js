@@ -13,28 +13,8 @@ async function contactFetch() {
                                              <div>
                                              ${contactResult.content.rendered}
                                              </div>
-                                             <form class="contact-form">
-                                             <div class="name-container">
-                                             <label for="name-input" class="name-label">Name*</label>
-                                             <input type="text" id="name-input" placeholder="Enter name here">
-                                             </div>
-                                             <div class="email-container">
-                                             <label for="email-input" class="email-label">Email*</label>
-                                             <input type="text" id="email-input" placeholder="Enter email here">
-                                             </div>
-                                             <div class="subject-container">
-                                             <label for="subject-input" class="subject-label">Subject*</label>
-                                             <input type="text" id="subject-input" placeholder="Enter subject here">
-                                             </div>
-                                             <div class="message-container">
-                                             <label for="message-input" class="message-label">Message*</label>
-                                             <textarea name="message-input" id="message-input" placeholder="Enter message here"></textarea>
-                                             </div>
-                                             <div class="contact-submit-button-container">
-                                             <button class="contact-submit-button">Add comment</button>
-                                             </div>
-                                             </form>
                                              `
+            contactSection.style.display = "block"
         }
         contactHtml(contactResult)
     }
@@ -44,3 +24,67 @@ async function contactFetch() {
 }
 
 contactFetch()
+
+const contactSection = document.querySelector(".contact-section")
+const contactSuccessMessage = document.querySelector(".contact-success-message")
+const contactForm = document.querySelector(".contact-form")
+const contactNameInput = document.querySelector("#name-input");
+const contactNameError = document.querySelector("#name-error");
+const contactEmailInput = document.querySelector("#email-input");
+const contactEmailError = document.querySelector("#email-error");
+const contactSubjectInput = document.querySelector("#subject-input");
+const contactSubjectError = document.querySelector("#subject-error")
+const contactMessageInput = document.querySelector("#message-input");
+const contactMessageInputError = document.querySelector("#message-error");
+const newMessageButton = document.querySelector(".new-message-button")
+
+function contactValidation(event) {
+    event.preventDefault()
+
+    if (contactNameInput.value.trim().length >= 5) {
+        contactNameError.style.display = "none"
+        contactNameInput.style.borderColor = "grey"
+    } else {
+        contactNameError.style.display = "block"
+        contactNameInput.style.borderColor = "red"
+    }
+
+    if (emailRequirements(contactEmailInput.value.trim()) === true) {
+        contactEmailError.style.display = "none"
+        contactEmailInput.style.borderColor = "grey"
+    } else {
+        contactEmailError.style.display = "block"
+        contactEmailInput.style.borderColor = "red"
+    }
+
+    if (contactSubjectInput.value.trim().length >= 15) {
+        contactSubjectError.style.display = "none"
+        contactSubjectInput.style.borderColor = "grey"
+    } else {
+        contactSubjectError.style.display = "block"
+        contactSubjectInput.style.borderColor = "red"
+    }
+
+    if (contactMessageInput.value.trim().length >= 25) {
+        contactMessageInputError.style.display = "none"
+        contactMessageInput.style.borderColor = "grey";
+    } else {
+        contactMessageInputError.style.display = "block"
+        contactMessageInput.style.borderColor = "red"
+    }
+
+    if (checklength(contactNameInput.value, 5) && emailRequirements(contactEmailInput.value) && checklength(contactSubjectInput.value, 15) && checklength(contactMessageInput.value, 25)) {
+        contactSuccessMessage.style.display = "block"
+        newMessageButton.style.display = "block"
+        contactForm.style.display = "none"
+        contactForm.reset()
+    }
+}
+
+contactForm.addEventListener("submit", contactValidation)
+
+newMessageButton.onclick = function () {
+    contactSuccessMessage.style.display = "none"
+    newMessageButton.style.display = "none"
+    contactForm.style.display = "block"
+}
