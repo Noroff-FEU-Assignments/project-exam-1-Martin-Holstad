@@ -1,7 +1,7 @@
 const homePageApiContainer = document.querySelector(".home-page-container")
 const homePageApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/pages"
 const loader = document.querySelector(".home-page-loader")
-const HomePageloaderErrorMessage = document.querySelector(".loading-error-message")
+const homePageloaderErrorMessage = document.querySelector(".loading-error-message")
 
 async function homePageFetch() {
     try {
@@ -32,7 +32,7 @@ async function homePageFetch() {
 
     catch (error) {
         loader.style.display = "none"
-        HomePageloaderErrorMessage.style.display = "block"
+        homePageloaderErrorMessage.style.display = "block"
         console.log(error)
     }
 }
