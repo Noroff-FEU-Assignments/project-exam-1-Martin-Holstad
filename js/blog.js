@@ -26,7 +26,7 @@ async function fetchPosts() {
 
             postsContainer.innerHTML += `<section>
                                          <div>
-                                         <a href="recipe-details.html?id=${posts.id}?name=${posts.title.rendered}?author=${posts._embedded.author[0].name}?date=${posts.date}">
+                                         <a href="recipe-details.html?id=${posts.id}?name=${posts.title.rendered}?author=${posts._embedded.author[0].name}?date=${posts.date.slice(0, 10)}">
                                          <img class="posts-main-image" src="${posts._embedded['wp:featuredmedia'][0].source_url}" alt="${posts.title.rendered}">
                                          <h2 class="posts-h2">${posts.title.rendered}</h2>
                                          </a>

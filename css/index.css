@@ -86,17 +86,9 @@ h4 {
   justify-content: space-between;
   gap: 5px;
   max-width: 700px;
-  scroll-behavior: smooth;
   padding-top: 10px;
   margin-top: -10px;
   overflow: hidden;
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.carousel-container::-webkit-scrollbar {
-  display: none;
 }
 
 .carousel-image {

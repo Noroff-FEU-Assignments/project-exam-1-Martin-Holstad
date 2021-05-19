@@ -138,8 +138,8 @@ function carouselThreeImageNext() {
         dotTwo.style.color = "#4b4b4b"
         dotThree.style.color = "#4b4b4b"
     }
-
 }
+
 
 function carouselTwoImageNext() {
     scrollOffset += 470
