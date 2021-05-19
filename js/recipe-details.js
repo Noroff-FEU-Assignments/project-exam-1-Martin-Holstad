@@ -3,6 +3,9 @@ const stringDetails = document.location.search;
 const newUrlDetails = new URLSearchParams(stringDetails);
 const idDetails = newUrlDetails.get("id")
 const urlDetails = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts/" + idDetails + "&_embed";
+const pageOverviewContainer = document.querySelector(".page-overview-ul")
+const contactPageLoader = document.querySelector(".recipe-page-loader")
+const contactPageLoaderError = document.querySelector(".recipe-page-loader-error")
 
 
 
@@ -15,8 +18,12 @@ async function recipeDetails() {
 
         function newHtml(postDetails) {
 
-            postSection.innerHTML += `
-                                      <div class ="post-container">
+            contactPageLoader.style.display = "none"
+            pageOverviewContainer.style.display = "block"
+
+            pageOverviewContainer.innerHTML += `<li class="page-overview-li"> ${postDetails.title.rendered}</li>`
+
+            postSection.innerHTML += `                                     
                                       <div class="image-module">
                                       <img src="${postDetails._embedded['wp:featuredmedia'][0].source_url}" alt ="${postDetails.title.rendered}">
                                       </div>
@@ -25,8 +32,7 @@ async function recipeDetails() {
                                       <p class="post-author">Recipe from: ${postDetails._embedded.author[0].name}</p>
                                       <div>
                                       ${postDetails.content.rendered}
-                                      </div>
-                                      </div>
+                                      </div>                                     
                                       <form class="add-a-comment-form">
                                       <div class="social-media-container">
                                       <a href="https://www.messenger.com/"><i class="fab fa-facebook-messenger"></i></a>
@@ -57,31 +63,37 @@ async function recipeDetails() {
         }
         newHtml(postDetails)
 
-        const imageModalContainer = document.querySelector(".image-modal-container")
-        const imageModalCenter = document.querySelector(".modal-image-center")
-        const modalImage = document.querySelector(".modal-image")
-        const modalImageCloseButton = document.querySelector(".image-modal-cross")
-        const images = document.querySelectorAll("img")
 
-        images.forEach(function (image) {
-            image.onclick = function () {
-                imageModalContainer.style.display = "block"
-                modalImage.src = image.src
-            }
-        })
-
-        imageModalContainer.onclick = function (event) {
-            if (event.target === imageModalContainer || event.target === imageModalCenter) {
-                imageModalContainer.style.display = "none"
-            }
-        }
-
-        modalImageCloseButton.onclick = function () {
-            imageModalContainer.style.display = "none"
-        }
     }
 
-    catch { }
+    catch (error) {
+        console.log(error)
+        contactPageLoader.style.display = "none"
+        contactPageLoaderError.style.display = "block"
+    }
 }
 
 recipeDetails()
+
+const imageModalContainer = document.querySelector(".image-modal-container")
+const imageModalCenter = document.querySelector(".modal-image-center")
+const modalImage = document.querySelector(".modal-image")
+const modalImageCloseButton = document.querySelector(".image-modal-cross")
+const images = document.querySelectorAll("img")
+
+images.forEach(function (image) {
+    image.onclick = function () {
+        imageModalContainer.style.display = "block"
+        modalImage.src = image.src
+    }
+})
+
+imageModalContainer.onclick = function (event) {
+    if (event.target === imageModalContainer || event.target === imageModalCenter) {
+        imageModalContainer.style.display = "none"
+    }
+}
+
+modalImageCloseButton.onclick = function () {
+    imageModalContainer.style.display = "none"
+}

@@ -1,6 +1,10 @@
 const postsApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts";
 const postsContainer = document.querySelector(".posts-main-image-container");
 const postsReadMoreButton = document.querySelector(".posts-read-more-button")
+const pageOverviewContainer = document.querySelector(".page-overview-ul")
+const blogPageLoader = document.querySelector(".blog-page-loader")
+const blogPageLoaderError = document.querySelector(".blog-page-loader-error")
+
 
 
 let perPage = 6
@@ -13,6 +17,9 @@ async function fetchPosts() {
         const result = await response.json();
 
         result.forEach(function (posts) {
+
+            blogPageLoader.style.display = "none"
+            pageOverviewContainer.style.display = "block"
 
             postsContainer.innerHTML += `<section>
                                          <div>
@@ -40,6 +47,7 @@ async function fetchPosts() {
                                          </div>
                                          </div>
                                          </section> `
+
         });
 
         viewMoreButton.style.display = "block"
@@ -49,6 +57,9 @@ async function fetchPosts() {
     }
 
     catch (error) {
+        blogPageLoader.style.display = "none"
+        console.log(error)
+        blogPageLoaderError.style.display = "block"
     }
 }
 fetchPosts()

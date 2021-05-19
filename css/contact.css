@@ -4,6 +4,20 @@ main {
   margin: 10px;
 }
 
+.contact-page-loader {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-page-loader-error {
+  display: none;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 .contact-nav-link {
   text-decoration: underline;
 }

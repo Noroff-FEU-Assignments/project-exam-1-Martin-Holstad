@@ -4,6 +4,22 @@ main {
   margin: 10px;
 }
 
+.home-page-loader,
+.carousel-loader {
+  margin-top: 150px;
+  margin-bottom: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loading-error-message,
+.loading-carousel-error-message {
+  display: none;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 .home-nav-link {
   text-decoration: underline;
 }
@@ -169,22 +185,14 @@ h4 {
 }
 
 @media only screen and (max-width: 729px) {
-  .home-page-container {
-    max-width: 470px;
-  }
-
+  .home-page-container,
+  .home-page-loader,
   .carousel-section {
     max-width: 470px;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .home-page-container {
-    max-width: 370px;
-    border-bottom-width: 0px;
-    text-align: center;
-  }
-
   .lastest-post-social-media {
     display: none;
   }

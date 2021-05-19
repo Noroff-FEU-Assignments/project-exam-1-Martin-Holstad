@@ -1,10 +1,14 @@
 const contactApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/pages/129?_embed"
 const contactMainSection = document.querySelector(".contact-main-section")
+const contactPageLoader = document.querySelector(".contact-page-loader")
+const contactPageLoaderError = document.querySelector(".contact-page-loader-error")
 
 async function contactFetch() {
     try {
         const response = await fetch(contactApi)
         const contactResult = await response.json();
+
+        contactPageLoader.style.display = "none"
 
         function contactHtml(contactResult) {
             contactMainSection.innerHTML += `<div>
@@ -20,6 +24,9 @@ async function contactFetch() {
     }
 
     catch (error) {
+        contactPageLoader.style.display = "none"
+        console.log(error)
+        contactPageLoaderError.style.display = "block"
     }
 }
 

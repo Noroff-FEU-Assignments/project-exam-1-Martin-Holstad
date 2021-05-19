@@ -22,11 +22,11 @@
 </head>
 <header>
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li class="blog-nav-link"><a href="blog.html">Blog</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+        <ul class="main-nav-ul">
+            <li class="main-nav-li"><a href="index.html">Home</a></li>
+            <li class="main-nav-li blog-nav-link"><a href="blog.html">Blog</a></li>
+            <li class="main-nav-li"><a href="about.html">About</a></li>
+            <li class="main-nav-li"><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
     <section>
@@ -60,6 +60,13 @@
     <main>
         <h1><a href="index.html">Food For You</a></h1>
         <section class="recipe-section">
+            <div class="recipe-page-loader"></div>
+            <div class="recipe-page-loader-error">Oops... Something went wrong</div>
+            <ul class="page-overview-ul">
+                <li class="page-overview-li"><a href="index.html">Home / </a></li>
+                <li class="page-overview-li"><a href="blog.html"> Blog /</a></li>
+            </ul>
+            <div class="post-container"></div>
         </section>
         <section class="image-modal-container">
             <i class="fas fa-times image-modal-cross"></i>

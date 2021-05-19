@@ -1,11 +1,15 @@
 const homePageApiContainer = document.querySelector(".home-page-container")
 const homePageApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/pages"
+const loader = document.querySelector(".home-page-loader")
+const HomePageloaderErrorMessage = document.querySelector(".loading-error-message")
 
 async function homePageFetch() {
     try {
         const response = await fetch(homePageApi + "/102?_embed");
 
         const results = await response.json();
+
+        loader.style.display = "none"
 
         function homeHtml(result) {
             homePageApiContainer.innerHTML += `<div>
@@ -27,6 +31,8 @@ async function homePageFetch() {
     }
 
     catch (error) {
+        loader.style.display = "none"
+        HomePageloaderErrorMessage.style.display = "block"
         console.log(error)
     }
 }
@@ -38,6 +44,8 @@ const carouselApiContainer = document.querySelector(".carousel-container")
 const carouselDotsContainer = document.querySelector(".carousel-dots-container")
 const nextImageContainer = document.querySelector(".fa-chevron-right-container")
 const previousImageContainer = document.querySelector(".fa-chevron-left-container")
+const carouselLoader = document.querySelector(".carousel-loader")
+const loadingCarouselErrorMessage = document.querySelector(".loading-carousel-error-message")
 
 let perPage = 9
 
@@ -62,6 +70,7 @@ async function carousel() {
         nextImageContainer.style.display = "block"
         previousImageContainer.style.display = "block"
         carouselDotsContainer.style.display = "block"
+        carouselLoader.style.display = "none"
 
         results.forEach(function (results) {
             carouselApiContainer.innerHTML += `
@@ -77,6 +86,8 @@ async function carousel() {
     }
 
     catch (error) {
+        carouselLoader.style.display = "none"
+        loadingCarouselErrorMessage.style.display = "block"
         console.log(error)
     }
 }
@@ -108,7 +119,6 @@ nextImage.onclick = function () {
         left: scrollOffset,
         behavior: 'smooth'
     });
-    console.log(scrollOffset)
 }
 
 function carouselThreeImageNext() {
@@ -186,7 +196,6 @@ previousImage.onclick = function () {
         left: scrollOffset,
         behavior: 'smooth'
     });
-    console.log(scrollOffset)
 }
 
 function carouselThreeImagePrevious() {
