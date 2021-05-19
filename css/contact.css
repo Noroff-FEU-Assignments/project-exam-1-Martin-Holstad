@@ -28,6 +28,7 @@ main {
 
 h2 {
   margin-top: 100px;
+  margin-bottom: 70px;
   font-size: 30px;
   font-weight: normal;
   border-bottom: 1px solid;
@@ -57,16 +58,21 @@ p {
 .contact-success-message {
   display: none;
   margin-top: 40px;
-  border-color: green;
-  border-style: solid;
-  border-width: 2px;
+  padding-top: 10px;
+  border-radius: 20px;
+  background-color: green;
   text-align: center;
 }
 
 .contact-success-icon {
-  color: green;
+  color: #fff;
   font-size: 20px;
   margin-bottom: 10px;
+}
+
+.contact-success-message-p {
+  color: #fff;
+  margin: 0px 0px 10px 0px;
 }
 
 .new-message-button {
@@ -170,19 +176,16 @@ label {
 @media only screen and (max-width: 544px) {
   h1 {
     margin-top: 80px;
+    margin-bottom: 0px;
   }
 
   h2 {
     margin-top: 0px;
   }
-
-  .contact-main-section {
-    margin-top: 50px;
-  }
 }
 
 @media only screen and (max-width: 400px) {
   h2 {
-    font-size: 25px;
+    font-size: 20px;
   }
 }

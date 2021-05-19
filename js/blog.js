@@ -1,9 +1,10 @@
 const postsApi = "https://holstaddesign.com/food-for-you/wp-json/wp/v2/posts";
 const postsContainer = document.querySelector(".posts-main-image-container");
 const postsReadMoreButton = document.querySelector(".posts-read-more-button")
-const pageOverviewContainer = document.querySelector(".page-overview-ul")
 const blogPageLoader = document.querySelector(".blog-page-loader")
 const blogPageLoaderError = document.querySelector(".blog-page-loader-error")
+const pageOverviewUl = document.querySelector(".page-overview-ul")
+
 
 
 
@@ -19,7 +20,9 @@ async function fetchPosts() {
         result.forEach(function (posts) {
 
             blogPageLoader.style.display = "none"
-            pageOverviewContainer.style.display = "block"
+
+            pageOverviewUl.innerHTML += `<li class="page-overview-li"><a href="index.html">Home / </a></li>
+                                         <li class="page-overview-li"><a href="blog.html"> Blog </a></li>`
 
             postsContainer.innerHTML += `<section>
                                          <div>

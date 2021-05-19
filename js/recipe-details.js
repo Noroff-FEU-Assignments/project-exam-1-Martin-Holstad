@@ -19,9 +19,10 @@ async function recipeDetails() {
         function newHtml(postDetails) {
 
             contactPageLoader.style.display = "none"
-            pageOverviewContainer.style.display = "block"
 
-            pageOverviewContainer.innerHTML += `<li class="page-overview-li"> ${postDetails.title.rendered}</li>`
+            pageOverviewContainer.innerHTML += `<li class="page-overview-li"><a href="index.html">Home / </a></li>
+                                                <li class="page-overview-li"><a href="blog.html"> Blog /</a></li>
+                                                <li class="page-overview-li"> ${postDetails.title.rendered}</li>`
 
             postSection.innerHTML += `                                     
                                       <div class="image-module">
@@ -60,9 +61,31 @@ async function recipeDetails() {
                                       </div>
                                       </form>                                   
                                       `
+
+            const imageModalContainer = document.querySelector(".image-modal-container")
+            const imageModalCenter = document.querySelector(".modal-image-center")
+            const modalImage = document.querySelector(".modal-image")
+            const modalImageCloseButton = document.querySelector(".image-modal-cross")
+            const images = document.querySelectorAll("img")
+
+            images.forEach(function (image) {
+                image.onclick = function () {
+                    imageModalContainer.style.display = "block"
+                    modalImage.src = image.src
+                }
+            })
+
+            imageModalContainer.onclick = function (event) {
+                if (event.target === imageModalContainer || event.target === imageModalCenter) {
+                    imageModalContainer.style.display = "none"
+                }
+            }
+
+            modalImageCloseButton.onclick = function () {
+                imageModalContainer.style.display = "none"
+            }
         }
         newHtml(postDetails)
-
 
     }
 
@@ -75,25 +98,3 @@ async function recipeDetails() {
 
 recipeDetails()
 
-const imageModalContainer = document.querySelector(".image-modal-container")
-const imageModalCenter = document.querySelector(".modal-image-center")
-const modalImage = document.querySelector(".modal-image")
-const modalImageCloseButton = document.querySelector(".image-modal-cross")
-const images = document.querySelectorAll("img")
-
-images.forEach(function (image) {
-    image.onclick = function () {
-        imageModalContainer.style.display = "block"
-        modalImage.src = image.src
-    }
-})
-
-imageModalContainer.onclick = function (event) {
-    if (event.target === imageModalContainer || event.target === imageModalCenter) {
-        imageModalContainer.style.display = "none"
-    }
-}
-
-modalImageCloseButton.onclick = function () {
-    imageModalContainer.style.display = "none"
-}
