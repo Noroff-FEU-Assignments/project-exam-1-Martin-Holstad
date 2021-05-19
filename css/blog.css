@@ -100,8 +100,28 @@ p {
   z-index: 1;
   border-radius: 50px;
 }
+
+@media only screen and (max-width: 544px) {
+  h1 {
+    margin-top: 80px;
+  }
+
+  .posts-main-image-container {
+    margin-top: 50px;
+  }
+}
+
 @media only screen and (max-width: 400px) {
   .blogg-social-media-container {
     display: none;
+  }
+
+  .posts-main-image-container {
+    margin-top: 30px;
+  }
+
+  .posts-h2,
+  h3 {
+    font-size: 20px;
   }
 }

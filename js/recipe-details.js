@@ -39,15 +39,15 @@ async function recipeDetails() {
                                       </div>
                                       <div class="add-a-comment-container">
                                       <label for="add-a-comment-input" class="add-a-comment-label">Add a comment*</label>
-                                      <textarea name="add-a-comment-input" id="add-a-comment-input" placeholder="Enter comment here"></textarea>
+                                      <textarea name="add-a-comment-input" id="add-a-comment-input" placeholder="Enter comment"></textarea>
                                       </div>
                                       <div class="name-container">
                                       <label for="name" class="name-label">Name*</label>
-                                      <input type="text" id="name-input" placeholder="Enter name here">
+                                      <input type="text" id="name-input" placeholder="Enter name">
                                       </div>
                                       <div class="email-container">
                                       <label for="email" class="email-label">Email*</label>
-                                      <input type="text" id="email-input" placeholder="Enter email here">
+                                      <input type="text" id="email-input" placeholder="Enter email">
                                       </div>
                                       <div class="add-a-comment-button-container">
                                       <button class="add-a-comment-button">Add comment</button>

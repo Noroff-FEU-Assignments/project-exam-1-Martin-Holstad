@@ -65,7 +65,7 @@ a {
 
 .mobile-nav-menu-button {
   display: none;
-  font-size: 25px;
+  font-size: 30px;
   text-align: end;
   color: #fff;
   padding-left: 10px;
@@ -156,7 +156,7 @@ footer {
     border-style: none;
     margin-top: -10px;
     background-color: #f29f05;
-    height: 25px;
+    height: 30px;
   }
 
   li {

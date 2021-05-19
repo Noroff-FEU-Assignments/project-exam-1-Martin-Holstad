@@ -211,6 +211,12 @@ h4 {
   }
 }
 
+@media only screen and (max-width: 544px) {
+  h2 {
+    margin-top: 50px;
+  }
+}
+
 @media only screen and (max-width: 385px) {
   .fa-chevron-left {
     left: 10px;
