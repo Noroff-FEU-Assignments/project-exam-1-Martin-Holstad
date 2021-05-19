@@ -72,6 +72,7 @@ async function recipeDetails() {
                 image.onclick = function () {
                     imageModalContainer.style.display = "block"
                     modalImage.src = image.src
+                    modalImage.alt = image.alt
                 }
             })
 

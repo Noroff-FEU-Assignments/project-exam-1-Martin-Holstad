@@ -39,15 +39,12 @@ main {
   width: 100%;
 }
 
-.home-page-h2 {
-  font-weight: normal;
-}
-
 p {
   color: #4b4b4b;
 }
 
 h2 {
+  font-weight: normal;
   color: #4b4b4b;
   text-align: center;
   margin-top: 100px;
@@ -78,8 +75,6 @@ h4 {
 }
 
 .carousel-section {
-  display: flex;
-  justify-content: center;
   position: relative;
   max-width: 700px;
   margin-right: auto;
@@ -106,7 +101,8 @@ h4 {
   color: black;
 }
 
-.fa-chevron-left-container {
+.fa-chevron-left-container,
+.fa-chevron-right-container {
   display: none;
 }
 
@@ -123,10 +119,6 @@ h4 {
   font-size: 30px;
   cursor: pointer;
   background-color: #f29f05;
-}
-
-.fa-chevron-right-container {
-  display: none;
 }
 
 .fa-chevron-right {
@@ -175,7 +167,7 @@ h4 {
 @media only screen and (max-width: 900px) {
   .fa-chevron-left {
     left: 10px;
-    top: 18%;
+    top: 20%;
   }
 
   .fa-chevron-right {
