@@ -33,7 +33,7 @@ async function fetchPosts() {
                                          <p class="posts-date">Posted on: ${posts.date.slice(0, 10)}</p>
                                          <p class="posts-author">Recipe from: ${posts._embedded.author[0].name}</p>
                                          </div >
-                                         <div>
+                                         <div class="posts-text-height">
                                          ${posts.content.rendered}
                                          </div>
                                          <div class="button-and-social-media-container">
