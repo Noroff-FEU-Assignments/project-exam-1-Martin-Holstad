@@ -124,6 +124,18 @@ a {
   margin-right: -10px;
 }
 
+.mobile-nav-center {
+  text-align: center;
+}
+
+.mobile-search-bar-input-container {
+  margin-top: 30px;
+}
+
+.mobile-social-media-and-search-container {
+  margin-top: 20px;
+}
+
 .mobile-ul {
   padding: 0px;
   margin: 0px;
